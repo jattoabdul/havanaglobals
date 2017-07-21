@@ -385,7 +385,8 @@
                                     <i class="icon-lock"></i> Lock Screen </a>
                             </li>
                             <li>
-                                <a href="page_user_login_1.html">
+                                <form method="post" action="/logout" id="logout-form"> {{ csrf_field() }} </form>
+                                <a href="javascript:;" onclick="document.getElementById('logout-form').submit();">
                                     <i class="icon-key"></i> Log Out </a>
                             </li>
                         </ul>

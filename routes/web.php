@@ -12,7 +12,7 @@
 */
 
 
-Route::group(['namespace'=>'Admin', 'middleware'=>[]], function ()
+Route::group(['namespace'=>'Admin', 'middleware'=>['auth', 'admin']], function ()
 {
 	Route::get('/admin/dashboard', 'dashboardController@index')->name('admin_dashboard');
 	Route::get('/admin', function(){
@@ -28,8 +28,16 @@ Route::group(['namespace'=>'Admin', 'middleware'=>[]], function ()
 	Route::post('/admin/products/delete', 'productController@delete')->name('delete_products');
 	Route::post('/admin/products/image/delete', 'productController@deleteImage')->name('delete_product_image');
 	Route::post('/admin/products/multi-image/delete', 'productController@deleteMany')->name('delete_multi_image');
+
+	//Category
+	Route::get('/admin/categories', 'categoryController@index')->name('manage_categories');
+	Route::post('/admin/categories/save', 'categoryController@save')->name('save_categories');
+	Route::post('/admin/categories/delete', 'categoryController@delete')->name('delete_categories');
+	Route::get('/admin/categories/edit/{id}', 'categoryController@edit')->name('edit_categories');
+	Route::post('/admin/categories/update/{id}', 'categoryController@update')->name('update_categories');
 });
 
+Route::get('/home', function() { return redirect('/'); });
 Route::get('/', 'havanaController@home')->name('home');
 
 Route::get('/product/{id}/{slug}', 'havanaController@productShow')->name('product_detail');

@@ -58,7 +58,7 @@ return [
         'test' => [
             'driver' => 'local',
             'root' => public_path('uploads'),
-            'url' => 'http://192.168.8.106:8000/uploads',
+            'url' => 'http://127.0.0.1:8000/uploads',
             'visibility' => 'public',
             'max-age' => 14515200
         ],

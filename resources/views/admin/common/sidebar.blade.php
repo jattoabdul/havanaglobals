@@ -49,8 +49,15 @@
             </li>
             <li class="nav-item @yield('active_product')">
                 <a href="{{ route('manage_products') }}" class="nav-link">
-                    <i class="icon-home"></i>
+                    <i class="icon-list"></i>
                     <span class="title">Products</span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+            <li class="nav-item @yield('active_category')">
+                <a href="{{ route('manage_categories') }}" class="nav-link">
+                    <i class="icon-paper-clip"></i>
+                    <span class="title">Categories</span>
                     <span class="selected"></span>
                 </a>
             </li>

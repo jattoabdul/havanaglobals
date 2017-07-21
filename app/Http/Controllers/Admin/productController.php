@@ -258,10 +258,10 @@ class productController extends Controller
 
     public function deleteImage(Request $request)
     {
-        $image = Product::find($request->id);
+        $image = ProductImage::find($request->id);
         if ($image)
         {
-            ProductImage::deleteImage($image->id);
+            ProductImage::destroy($image->id);
             $response = ['state'=>'success','msg'=>'The image was deleted.'];
         } else {
             $response = ['state'=>'error','msg'=>'The image does not exist.'];

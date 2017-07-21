@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
+
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -12,10 +15,7 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
-    {
-		Schema::defaultStringLength(191);
-    }
+    public function boot() { Schema::defaultStringLength(191); }
 
     /**
      * Register any application services.

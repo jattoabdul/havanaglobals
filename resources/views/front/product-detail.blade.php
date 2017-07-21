@@ -35,25 +35,18 @@
                                 <!-- Single Products Slider Starts --> 
                                 <div class="col-lg-6 pb-50 col-sm-8 col-sm-offset-2 col-lg-offset-0">
                                     <div class="prod-slider sync1">
-                                        <div class="item"> 
-                                            <img src="{{ asset('front/img/products/prod-single-1.png') }}" alt="">
+                                        @foreach($product->images as $image)
+                                        <div class="item">
+                                            <img src="{{ $image->url }}" alt="">
                                         </div>
-                                        <div class="item"> 
-                                            <img src="{{ asset('front/img/products/prod-single-2.png') }}" alt="">
-                                        </div>
-                                        <div class="item"> 
-                                            <img src="{{ asset('front/img/products/prod-single-3.png') }}" alt="">
-                                        </div> 
-                                        <div class="item"> 
-                                            <img src="{{ asset('front/img/products/prod-single-1.png') }}" alt="">
-                                        </div> 
+                                        @endforeach
+
                                     </div>
 
                                     <div  class="sync2">
-                                        <div class="item"> <a href="#"> <img src="{{ asset('front/img/products/thumb-1.png') }}" alt=""> </a> </div>
-                                        <div class="item"> <a href="#"> <img src="{{ asset('front/img/products/thumb-2.png') }}" alt=""> </a> </div>
-                                        <div class="item"> <a href="#"> <img src="{{ asset('front/img/products/thumb-3.png') }}" alt=""> </a> </div>
-                                        <div class="item"> <a href="#"> <img src="{{ asset('front/img/products/thumb-1.png') }}" alt=""> </a> </div>
+                                        @foreach($product->images as $image)
+                                        <div class="item"> <a href="#"> <img src="{{ $image->url }}" alt=""> </a> </div>
+                                        @endforeach
                                     </div>
                                 </div>
                                 <!-- Single Products Slider Ends --> 
@@ -64,6 +57,7 @@
                                         @if($stock > 0)
                                             <form method="post" action="{{ route('cart_add') }}">
                                                 {{csrf_field()}}
+                                                <input type="hidden" name="pid" value="{{ $product->id }}">
                                         @endif
 
                                         <div class="single-caption"> 
@@ -79,7 +73,7 @@
 
                                             <div class="prod-btns">
                                                 <div class="quantity">
-                                                    <input name="cart_qty" placeholder="Quantity" class="form-control" type="text" @if($stock <= 90) disabled @endif>
+                                                    <input name="qty" placeholder="Quantity" class="form-control" type="text" value="1" @if($stock <= 0) disabled @endif>
                                                 </div>
                                                 <div class="form-group"> Quantity Available: {{ $product->qty }} </div>
                                             </div>

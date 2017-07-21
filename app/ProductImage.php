@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductImage extends Model
 {
+	protected $table = 'product_images';
     public static function deleteImage($id)
     {
         $image = ProductImage::find($id);
@@ -16,6 +17,8 @@ class ProductImage extends Model
         $disk->delete($filename);
         $image->delete();
     }
+
+    public static function getSingleProductImage($pid) { return ProductImage::where('product_id',$pid)->first()->url; }
 
     public function product() { return $this->belongsTo('App\Product'); }
 }

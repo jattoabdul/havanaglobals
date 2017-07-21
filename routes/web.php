@@ -37,8 +37,9 @@ Route::get('/product/{id}/{slug}', 'havanaController@productShow')->name('produc
 Route::get('/404', 'havanaController@notFound')->name('error_404');
 
 Route::post('/cart/add', 'havanaController@cartAdd')->name('cart_add');
+Route::get('/cart/show', 'havanaController@cartShow')->name('cart_show');
+Route::get('/cart/remove/{row_id}', 'havanaController@cartRemove')->name('cart_remove');
+Route::post('/cart/update', 'havanaController@cartUpdate')->name('cart_update');
 
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

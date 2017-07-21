@@ -1,46 +1,4 @@
 /* --------------------------------------------------------------------------
- * jThemes Studio : Naturix
- *
- * file           : style.css
- * Desc           : Naturix Template - Stylesheet
- * Version        : 1.0.2
- * Date           : 
- * Author         : jThemes Studio
- * Author URI     : 
- * Email          : 
- *
- * jThemes Studio. Copyright 2017. All Rights Reserved.
- * -------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------
- *  Home Naturix Template - Table of Content
-
-  1 - General
-    1.1 - Preloader
-    1.2 - Global properties (body, common classes, structure etc)
-    1.3 - Page section block
-    1.4 - Typography (section title, links, page dividers)
-    1.5 - Buttons 
-    1.6 - Form / Input / Textarea  
-    1.7 - Theme Colors
-    1.8 - Theme Fonts
-    1.9 - Rating Stars
-    1.10 - Product Box Structure 
-    1.11 - Slider Pagination Style
-    1.12 - Breadcrumb
-    1.13 - Content Middle
-  2 - Header
-  3 - Home
-  4 - Shop
-  5 - My Account
-  6 - Blog
-  7 - Contact
-  8 - Comingsoon
-  9 - Footer
-  10 - Popups
-    10.1 - To Top
-    10.2 - Subscribe
-  11 - Login
-
  * -------------------------------------------------------------------------- */
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i');
 @import url('https://fonts.googleapis.com/css?family=Great+Vibes&amp;subset=latin-ext');
@@ -3770,6 +3728,7 @@ blockquote {
 
 .product-table td.image, .product-table td.description {
     text-align: left;
+    width: 250px !important;
 }
 
 .product-table .prod-btns {

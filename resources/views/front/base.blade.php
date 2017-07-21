@@ -27,6 +27,7 @@
 
     <!-- Custom CSS -->
     <link href="{{ asset('front/css/style.css') }}" rel="stylesheet" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet" />
 
     <!-- Color CSS -->
 
@@ -47,7 +48,7 @@
         <div class="container-fluid rel-div">
             <div class="col-lg-4 col-sm-8">
                 <div class="main-logo">
-                    <a href="index-2.html"> <strong>{{ env('APP_NAME') }}<img src="{{ asset('front/img/icons/logo-icon.png') }}" alt="" /> </strong>  </a>
+                    <a href="{{ route('home') }}"> <strong>{{ env('APP_NAME') }}<img src="{{ asset('front/img/icons/logo-icon.png') }}" alt="" /> </strong>  </a>
                     <span class="medium-font">ORGANIC STORE</span>
                 </div>
             </div>
@@ -56,7 +57,7 @@
                 <div class="responsive-toggle fa fa-bars"> </div>
                 <nav class="fix-navbar" id="primary-navigation">
                     <ul class="primary-navbar">
-                        <li class="dropdown active"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" >Home</a> </li>
+                        <li class="dropdown active"> <a href="{{ route('home') }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" >Home</a> </li>
                         <li><a href="about-us.html">About</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" >Categories</a>
@@ -75,73 +76,45 @@
             <div class="col-lg-2 col-sm-4 cart-megamenu">
                 <div class="cart-hover">
                     <a href="#"> <img alt="" src="{{ asset('front/img/icons/cart-icon.png') }}" /> </a>
-                    <span class="cnt crl-bg">2</span> <span class="price">$2.170.00</span>
+                    <span class="cnt crl-bg">{{Cart::count()}}</span> <span class="price">N{{ Cart::total() }}</span>
+                    @if(Cart::count()>0)
                     <ul class="pop-up-box cart-popup">
+
+                        @foreach(Cart::content() as $item)
                         <li class="cart-list">
                             <div class="cart-img"> <img src="{{ asset('front/img/extra/cart-sm-1.jpg') }}" alt=""> </div>
                             <div class="cart-title">
                                 <div class="fsz-16">
-                                    <a href="#"> <span class="light-font"> organic </span>  <strong>almonds</strong></a>
-                                    <h6 class="sub-title-1">DRY FRUITS</h6>
+                                    <a href="#"> <span class="light-font"> {{$item->name}}</span></a>
                                 </div>
                                 <div class="price">
-                                    <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
+                                    <strong class="clr-txt">N{{$item->price}} x {{$item->qty}}</strong>
                                 </div>
                             </div>
                             <div class="close-icon"> <i class="fa fa-close clr-txt"></i> </div>
                         </li>
-
-                        <li class="cart-list">
-                            <div class="cart-img"> <img src="{{ asset('front/img/extra/cart-sm-2.jpg') }}" alt=""> </div>
-                            <div class="cart-title">
-                                <div class="fsz-16">
-                                    <a href="#"> <span class="light-font"> organic </span>  <strong>pepper</strong></a>
-                                    <h6 class="sub-title-1">VEGETABLES</h6>
-                                </div>
-                                <div class="price">
-                                    <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
-                                </div>
-                            </div>
-                            <div class="close-icon"> <i class="fa fa-close clr-txt"></i> </div>
-                        </li>
-
-                        <li class="cart-list">
-                            <div class="cart-img"> <img src="{{ asset('front/img/extra/cart-sm-3.jpg') }}" alt=""> </div>
-                            <div class="cart-title">
-                                <div class="fsz-16">
-                                    <a href="#"> <span class="light-font"> organic </span>  <strong>onion</strong></a>
-                                    <h6 class="sub-title-1">VAGETABLES</h6>
-                                </div>
-                                <div class="price">
-                                    <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
-                                </div>
-                            </div>
-                            <div class="close-icon"> <i class="fa fa-close clr-txt"></i> </div>
-                        </li>
+                        @endforeach
 
                         <li class="cart-list sub-total">
-                            <div class="pull-left">
-                                <strong>Subtotal</strong>
-                            </div>
-                            <div class="pull-right">
-                                <strong class="clr-txt">$150.00</strong>
-                            </div>
+                            <div class="pull-left"> <strong>Subtotal</strong> </div>
+                            <div class="pull-right"> <strong class="clr-txt">N{{ Cart::total() }}</strong> </div>
                         </li>
                         <li class="cart-list buttons">
                             <div class="pull-left">
-                                <a href="cart.html" class="theme-btn-sm-2">View Cart</a>
+                                <a href="{{ route('cart_show') }}" class="theme-btn-sm-2">View Cart</a>
                             </div>
                             <div class="pull-right">
                                 <a href="checkout.html" class="theme-btn-sm-3"> Checkout </a>
                             </div>
                         </li>
+
                     </ul>
+                    @endif
                 </div>
                 <div class="mega-submenu">
-
-                            <span class="nav-trigger">
-                                <a class="menu-toggle" href="#"> <img src="{{ asset('front/img/icons/menu.png') }}" alt="" /> </a>
-                            </span>
+                    <span class="nav-trigger">
+                        <a class="menu-toggle" href="#"> <img src="{{ asset('front/img/icons/menu.png') }}" alt="" /> </a>
+                    </span>
                     <div class="mega-dropdown-menu">
                         <a class="menu-toggle fa fa-close" href="#">  </a>
                         <div class="slider-mega-menu">
@@ -507,6 +480,16 @@
 
 <!-- Custom JS -->
 <script src="{{ asset('front/js/theme.js') }}"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+
+<script>
+
+    @if(session('flash_success'))
+    swal("Success","{{session('flash_success')}}","success");
+    @endif
+
+</script>
 
 
 </body>

@@ -42,7 +42,7 @@
                                 <div class="item">
                                     <div class="product-box">
                                         <div class="product-media">
-                                            <img class="prod-img" alt="" src="{{ asset('front/img/products/7.png') }}" />
+                                            <img class="prod-img" alt="" src="{{ $product->images()->first()->url }}" />
                                             <img class="shape" alt="" src="{{ asset('front/img/icons/shap-small.png') }}" />
                                             <div class="prod-icons">
                                                 <a href="#" class="fa fa-heart"></a>

@@ -128,76 +128,76 @@
                 </div>
                 @endif
 
+                @if(Auth::check())
+                    <div class="panel">
+                        <div class="chk-heading">
+                            <a class="fsz-30" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                <span class="light-font">billing </span> <strong>information </strong>
+                            </a>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse{{ (Auth::check())?' in':'' }}">
+                            <div class="chk-body pt-15 block-inline">
+                                @foreach($addresses as $address)
 
-                <div class="panel">
-                    <div class="chk-heading">
-                        <a class="fsz-30" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                            <span class="light-font">billing </span> <strong>information </strong>
-                        </a>
-                    </div>
-                    <div id="collapseTwo" class="panel-collapse collapse{{ (Auth::check())?' in':'' }}">
-                        <div class="chk-body pt-15 block-inline">
-                            @foreach($addresses as $address)
-
-                            @endforeach
+                                @endforeach
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="panel">
-                    <div class="chk-heading">
-                        <a class="fsz-30" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                            <span class="light-font">shipping </span> <strong>information </strong>
-                        </a>
-                    </div>
-                    <div id="collapseThree" class="panel-collapse collapse">
-                        <div class="chk-body pt-15 block-inline">
-                            @foreach($addresses as $address)
+                    <div class="panel">
+                        <div class="chk-heading">
+                            <a class="fsz-30" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                                <span class="light-font">shipping </span> <strong>information </strong>
+                            </a>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse">
+                            <div class="chk-body pt-15 block-inline">
+                                @foreach($addresses as $address)
 
-                            @endforeach
+                                @endforeach
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="panel">
-                    <div class="chk-heading">
-                        <a class="fsz-30" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
-                            <span class="light-font">shipping </span> <strong>method </strong>
-                        </a>
-                    </div>
-                    <div id="collapseFour" class="panel-collapse collapse">
-                        <div class="chk-body pt-15 block-inline">
-                            <p> SHIPPING METHOD HERE </p>
+                    <div class="panel">
+                        <div class="chk-heading">
+                            <a class="fsz-30" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                                <span class="light-font">shipping </span> <strong>method </strong>
+                            </a>
+                        </div>
+                        <div id="collapseFour" class="panel-collapse collapse">
+                            <div class="chk-body pt-15 block-inline">
+                                <p> SHIPPING METHOD HERE </p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="panel">
-                    <div class="chk-heading">
-                        <a class="fsz-30" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
-                            <span class="light-font">payment </span> <strong>information </strong>
-                        </a>
-                    </div>
-                    <div id="collapseFive" class="panel-collapse collapse">
-                        <div class="chk-body pt-15 block-inline">
-                            <p> PAYMENT INFORMATION HERE </p>
+                    <div class="panel">
+                        <div class="chk-heading">
+                            <a class="fsz-30" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+                                <span class="light-font">payment </span> <strong>information </strong>
+                            </a>
+                        </div>
+                        <div id="collapseFive" class="panel-collapse collapse">
+                            <div class="chk-body pt-15 block-inline">
+                                <p> PAYMENT INFORMATION HERE </p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="panel">
-                    <div class="chk-heading">
-                        <a class="fsz-30" data-toggle="collapse" data-parent="#accordion" href="#collapseSix">
-                            <span class="light-font">order </span> <strong>review </strong>
-                        </a>
-                    </div>
-                    <div id="collapseSix" class="panel-collapse collapse">
-                        <div class="chk-body pt-15 block-inline">
-                            <p> ORDER REVIEW HERE </p>
+                    <div class="panel">
+                        <div class="chk-heading">
+                            <a class="fsz-30" data-toggle="collapse" data-parent="#accordion" href="#collapseSix">
+                                <span class="light-font">order </span> <strong>review </strong>
+                            </a>
+                        </div>
+                        <div id="collapseSix" class="panel-collapse collapse">
+                            <div class="chk-body pt-15 block-inline">
+                                <p> ORDER REVIEW HERE </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-
+                @endif
             </div>
         </div>
     </section>

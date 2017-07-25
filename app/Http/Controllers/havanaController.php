@@ -6,6 +6,7 @@ use App\Category;
 use App\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use App\Core;
 
 class havanaController extends Controller
 {
@@ -35,10 +36,33 @@ class havanaController extends Controller
 	public function cartAdd(Request $request)
 	{
 		$product = Product::find($request->pid);
+
 		if($product)
 		{
 			Cart::add(['id'=>$request->pid,'name'=>$product->name,'qty'=>$request->qty,'price'=>$product->price]);
+
+			if($request->ajax())
+			{
+				return response()->json([
+					'state' => 'success',
+					'msg' => $product->name." Added To Cart",
+					'total' => Cart::total(),
+					'count' => Cart::count(),
+					'data' => [
+						'name' => $product->name,
+						'qty' => $request->qty,
+						'price' => $product->price,
+						'img' => ($product->images->isNotEmpty())?$product->images[0]->url:'',
+						'url' => route('product_detail', ['id'=>$product->id, 'slug'=>Core::slugger($product->name)])
+					]
+				]);
+			}
 			return redirect()->back()->with('flash_success',"{$product->name} Added To Cart");
+		}
+
+		if($request->ajax())
+		{
+			return response()->json(['state'=>'error', 'msg' => "Product {$product->name} Not Found."]);
 		}
 		return redirect()->route('home');
 	}

@@ -79,43 +79,9 @@
             </div>
 
             <div class="col-lg-2 col-sm-4 cart-megamenu">
-                <div class="cart-hover">
-                    <a href="#"> <img alt="" src="{{ asset('front/img/icons/cart-icon.png') }}" /> </a>
-                    <span class="cnt crl-bg">{{Cart::count()}}</span> <span class="price">N{{ Cart::total() }}</span>
-                    @if(Cart::count()>0)
-                    <ul class="pop-up-box cart-popup">
+                <!-- Cart -->
+                @include('front.fragments.cart')
 
-                        @foreach(Cart::content() as $item)
-                        <li class="cart-list">
-                            <div class="cart-img"> <img src="{{ asset('front/img/extra/cart-sm-1.jpg') }}" alt=""> </div>
-                            <div class="cart-title">
-                                <div class="fsz-16">
-                                    <a href="#"> <span class="light-font"> {{$item->name}}</span></a>
-                                </div>
-                                <div class="price">
-                                    <strong class="clr-txt">N{{$item->price}} x {{$item->qty}}</strong>
-                                </div>
-                            </div>
-                            <div class="close-icon"> <i class="fa fa-close clr-txt"></i> </div>
-                        </li>
-                        @endforeach
-
-                        <li class="cart-list sub-total">
-                            <div class="pull-left"> <strong>Subtotal</strong> </div>
-                            <div class="pull-right"> <strong class="clr-txt">N{{ Cart::total() }}</strong> </div>
-                        </li>
-                        <li class="cart-list buttons">
-                            <div class="pull-left">
-                                <a href="{{ route('cart_show') }}" class="theme-btn-sm-2">View Cart</a>
-                            </div>
-                            <div class="pull-right">
-                                <a href="{{ route('cart_checkout') }}" class="theme-btn-sm-3"> Checkout </a>
-                            </div>
-                        </li>
-
-                    </ul>
-                    @endif
-                </div>
                 <div class="mega-submenu">
                     <span class="nav-trigger">
                         <a class="menu-toggle" href="#"> <img src="{{ asset('front/img/icons/menu.png') }}" alt="" /> </a>

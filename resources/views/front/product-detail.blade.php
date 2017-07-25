@@ -73,7 +73,7 @@
 
                                             <div class="prod-btns">
                                                 <div class="quantity">
-                                                    <input name="qty" placeholder="Quantity" class="form-control" type="text" value="1" @if($stock <= 0) disabled @endif>
+                                                    <input name="qty" placeholder="Quantity" class="form-control" type="text" id="single-product-qty" value="1" @if($stock <= 0) disabled @endif>
                                                 </div>
                                                 <div class="form-group"> Quantity Available: {{ $product->qty }} </div>
                                             </div>

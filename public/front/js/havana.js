@@ -91,6 +91,54 @@ $(document).ready(function() {
     });
 
 
+    $(document).on('click', '.add-to-cart', function (e) {
+        e.preventDefault();
+        var btn = $(this); var id = btn.attr('data-id'); var btn_title = btn.attr('data-title'); var qty = ($('#single-product-qty').length)?$('#single-product-qty').val():1;
+
+        btn.html(ajaxSpinner).attr('disabled', 'disabled');
+
+        $.post("/cart/add", {pid:id, qty:qty, _token:_token},  function(response)
+        {
+            console.log(response.state);
+            if (response.state == 'success')
+            {
+                $('.cart-total').html('N'+response.total);
+                $('#cart-count').html(response.count);
+
+                if (0 === $('#cart-item-'+id).length) {
+
+                    var cart_item = '<li class="cart-list" id="cart-item-'+id+'">';
+                    cart_item += '<div class="cart-img"> <img src="'+response.data.img+'" alt=""> </div>';
+                    cart_item += '    <div class="cart-title">';
+                    cart_item += '         <div class="fsz-16">';
+                    cart_item += '             <a href="'+response.data.url+'" target="_blank"> <span class="light-font">'+response.data.name+'</span></a>';
+                    cart_item += '         </div>';
+                    cart_item += '         <div class="price">';
+                    cart_item += '             <strong class="clr-txt">N'+response.data.price+' x '+response.data.qty+'</strong>';
+                    cart_item += '         </div>';
+                    cart_item += '    </div>';
+                    cart_item += '</div>';
+                    cart_item += '<div class="close-icon"> <i class="fa fa-close clr-txt cart-item-remove" data-id="'+id+'"></i> </div>';
+
+                    $('#cart-popup').prepend(cart_item);
+                }
+                else
+                {
+                    var qty_element = $('#cart-item-qty-'+id);
+                    var item_qty = Number(qty_element.html());
+
+                    qty_element.html(item_qty + Number(response.data.qty));
+                }
+
+                swal('Success',response.msg,'success');
+            }
+
+            if (response.state == 'error') { swal('Oops',response.msg,'error'); }
+            $(btn).html(btn_title).removeAttr('disabled');
+        })
+    });
+
+
     $(document).on('click','.checkout-continue',function(e)
     {
         e.preventDefault();

@@ -74,8 +74,8 @@
                             </div>
 
                             <div class="shp-btn col-sm-12 text-center">
-                                <button class="theme-btn-2 btn"> <b> CONTINUE SHOPPING </b> </button>
-                                <button class="theme-btn-3 btn"> <b> CHECKOUT NOW </b> </button>
+                                <a class="theme-btn-2 btn"> <b> CONTINUE SHOPPING </b> </a>
+                                <a href="" class="theme-btn-3 btn"> <b> CHECKOUT NOW </b> </a>
                             </div>                                   
 
                     </div>                    

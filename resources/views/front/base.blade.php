@@ -8,6 +8,7 @@
     <meta charset="utf-8">
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="_token" content="{{ csrf_token() }}">
 
     <title>{{env('APP_NAME')}}</title>
 
@@ -56,6 +57,7 @@
             <div class="col-lg-6 responsive-menu">
                 <div class="responsive-toggle fa fa-bars"> </div>
                 <nav class="fix-navbar" id="primary-navigation">
+                    <form action="/logout" method="post" id="logout-form">{{ csrf_field() }}</form>
                     <ul class="primary-navbar">
                         <li class="dropdown active"> <a href="{{ route('home') }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" >Home</a> </li>
                         <li><a href="about-us.html">About</a></li>
@@ -69,6 +71,9 @@
                             </ul>
                         </li>
                         <li><a href="contact.html">Contact Us</a></li>
+                        @if(Auth::check())
+                        <li><a href="javascript:;" onclick="document.getElementById('logout-form').submit();">Logout</a></li>
+                        @endif
                     </ul>
                 </nav>
             </div>
@@ -479,6 +484,7 @@
 <script src="{{ asset('front/js/plugin/jquery.subscribe-better.min.js') }}"></script>
 
 <!-- Custom JS -->
+<script src="{{ asset('front/js/havana.js') }}"></script>
 <script src="{{ asset('front/js/theme.js') }}"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>

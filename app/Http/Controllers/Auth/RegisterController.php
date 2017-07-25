@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -48,9 +50,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'tel' => 'required|string|max:16',
+            'password' => 'required|string|min:6',
         ]);
     }
 
@@ -63,9 +67,35 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
             'email' => $data['email'],
+            'tel' => $data['tel'],
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    public function guestRegister(Request $request)
+	{
+		$this->validate($request, [
+			'first_name' => 'required|string|max:250',
+			'last_name' => 'required|string|max:250',
+			'email' => 'required|email|max:255|unique:users,email',
+			'tel' => 'required|string|max:16'
+		]);
+
+		$user = new User();
+		$user->first_name = $request->first_name;
+		$user->last_name = $request->last_name;
+		$user->email = $request->email;
+		$user->tel = $request->tel;
+		$user->save();
+
+		Auth::loginUsingId($user->id);
+
+		if(!$request->ajax())
+		{
+			return redirect()->back();
+		}
+	}
 }

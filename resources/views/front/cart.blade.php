@@ -75,7 +75,7 @@
 
                             <div class="shp-btn col-sm-12 text-center">
                                 <a class="theme-btn-2 btn"> <b> CONTINUE SHOPPING </b> </a>
-                                <a href="" class="theme-btn-3 btn"> <b> CHECKOUT NOW </b> </a>
+                                <a href="{{ route('cart_checkout') }}" class="theme-btn-3 btn"> <b> CHECKOUT NOW </b> </a>
                             </div>                                   
 
                     </div>                    

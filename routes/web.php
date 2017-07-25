@@ -52,3 +52,4 @@ Route::get('/cart/checkout', 'checkoutController@index')->name('cart_checkout');
 
 
 Auth::routes();
+Route::post('/guest/register', 'Auth\RegisterController@guestRegister')->name('guest_register');

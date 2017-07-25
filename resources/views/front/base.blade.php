@@ -109,7 +109,7 @@
                                 <a href="{{ route('cart_show') }}" class="theme-btn-sm-2">View Cart</a>
                             </div>
                             <div class="pull-right">
-                                <a href="checkout.html" class="theme-btn-sm-3"> Checkout </a>
+                                <a href="{{ route('cart_checkout') }}" class="theme-btn-sm-3"> Checkout </a>
                             </div>
                         </li>
 

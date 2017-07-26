@@ -39,7 +39,7 @@ class havanaController extends Controller
 
 		if($product)
 		{
-			Cart::add(['id'=>$request->pid,'name'=>$product->name,'qty'=>$request->qty,'price'=>$product->price]);
+			$item = Cart::add(['id'=>$request->pid,'name'=>$product->name,'qty'=>$request->qty,'price'=>$product->price]);
 
 			if($request->ajax())
 			{
@@ -53,7 +53,8 @@ class havanaController extends Controller
 						'qty' => $request->qty,
 						'price' => $product->price,
 						'img' => ($product->images->isNotEmpty())?$product->images[0]->url:'',
-						'url' => route('product_detail', ['id'=>$product->id, 'slug'=>Core::slugger($product->name)])
+						'url' => route('product_detail', ['id'=>$product->id, 'slug'=>Core::slugger($product->name)]),
+						'row_id' => $item->rowId,
 					]
 				]);
 			}
@@ -69,7 +70,11 @@ class havanaController extends Controller
 
 	public function cartShow(Request $request) { return view('front.cart'); }
 
-	public function cartRemove(Request $request,$row_id){ Cart::remove($row_id); return redirect()->back()->with('flash_success','Item Removed'); }
+	public function cartRemove(Request $request,$row_id){
+		Cart::remove($row_id);
+		if($request->ajax()) { return response()->json(['state'=>'success', 'msg'=>'Item Removed', 'count'=>Cart::count(), 'total'=>Cart::total()]); }
+		return redirect()->back()->with('flash_success','Item Removed');
+	}
 
 	public function cartUpdate(Request $request)
 	{

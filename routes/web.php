@@ -48,7 +48,9 @@ Route::post('/cart/add', 'havanaController@cartAdd')->name('cart_add');
 Route::get('/cart/show', 'havanaController@cartShow')->name('cart_show');
 Route::get('/cart/remove/{row_id}', 'havanaController@cartRemove')->name('cart_remove');
 Route::post('/cart/update', 'havanaController@cartUpdate')->name('cart_update');
+
 Route::get('/cart/checkout', 'checkoutController@index')->name('cart_checkout');
+Route::post('/address/add', 'checkoutController@addAddress')->name('add_address')->middleware('auth');
 
 
 Auth::routes();

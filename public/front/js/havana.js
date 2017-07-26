@@ -4,6 +4,12 @@ $(document).ready(function() {
     'use strict';
 
 
+    $(document).on('click','.prod-img',function(e)
+    {
+        window.location.href = $(this).attr('data-url');
+    });
+
+
     $(document).on('click','.checkout-login',function(e)
     {
         e.preventDefault(); var email = $('#login-email').val(); var password = $('#login-password').val(); $('#ajax_login_feedback').html(ajaxSpinner).attr('disabled', 'disabled');
@@ -114,11 +120,11 @@ $(document).ready(function() {
                     cart_item += '             <a href="'+response.data.url+'" target="_blank"> <span class="light-font">'+response.data.name+'</span></a>';
                     cart_item += '         </div>';
                     cart_item += '         <div class="price">';
-                    cart_item += '             <strong class="clr-txt">N'+response.data.price+' x '+response.data.qty+'</strong>';
+                    cart_item += '             <strong class="clr-txt"><span>N'+response.data.price+'</span> x <span id="cart-item-qty-'+id+'">'+response.data.qty+'</span></strong>';
                     cart_item += '         </div>';
                     cart_item += '    </div>';
                     cart_item += '</div>';
-                    cart_item += '<div class="close-icon"> <i class="fa fa-close clr-txt cart-item-remove" data-id="'+id+'"></i> </div>';
+                    cart_item += '<div class="close-icon"> <i class="fa fa-close clr-txt cart-item-remove" data-id="'+id+'" data-row-id="'+response.data.row_id+'"></i> </div>';
 
                     $('#cart-popup').prepend(cart_item);
                 }
@@ -131,6 +137,7 @@ $(document).ready(function() {
                 }
 
                 swal('Success',response.msg,'success');
+                if ($('#shopping-cart-table').length){ location.reload(); }
             }
 
             if (response.state == 'error') { swal('Oops',response.msg,'error'); }
@@ -138,6 +145,23 @@ $(document).ready(function() {
         })
     });
 
+    $(document).on('click', '.cart-item-remove', function (e)
+    {
+        e.preventDefault();
+        var btn = $(this); var id = btn.attr('data-id'); var row_id = btn.attr('data-row-id');
+
+        $.get("/cart/remove/"+row_id, function(response)
+        {
+            if (response.state == 'success')
+            {
+                $('.cart-total').html('N'+response.total);
+                $('#cart-count').html(response.count);
+                $('#cart-item-'+id).slideUp();
+                swal('Success',response.msg,'success');
+            }
+            if ($('#shopping-cart-table').length){ location.reload(); }
+        });
+    });
 
     $(document).on('click','.checkout-continue',function(e)
     {

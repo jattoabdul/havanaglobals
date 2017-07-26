@@ -86,7 +86,7 @@
                                                 @if($stock <= 0)
                                                     <div class="alert alert-info text-center"><b>Out Of Stock</b></div>
                                                 @else
-                                                <button type="submit" class="theme-btn btn"> <strong> ADD TO CART </strong> </button>
+                                                <button type="submit" class="theme-btn btn add-to-cart" data-id="{{ $product->id }}" data-title="<strong> ADD TO CART </strong>"> <strong> ADD TO CART </strong> </button>
                                                 @endif
                                             </div>
                                         </div>

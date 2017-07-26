@@ -460,6 +460,12 @@
     @if(session('flash_success'))
     swal("Success","{{session('flash_success')}}","success");
     @endif
+    @if(session('flash_info'))
+    swal("Note","{{session('flash_info')}}","info");
+    @endif
+    @if(session('flash_error'))
+    swal("Error","{{session('flash_error')}}","error");
+    @endif
 
 </script>
 

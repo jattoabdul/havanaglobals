@@ -15,7 +15,7 @@
                                 <strong class="clr-txt"><span>N{{$item->price}}</span> x <span id="cart-item-qty-{{ $item->id }}">{{$item->qty}}</span></strong>
                             </div>
                         </div>
-                        <div class="close-icon"> <i class="fa fa-close clr-txt cart-item-remove" data-id="{{ $item->id }}"></i> </div>
+                        <div class="close-icon"> <i class="fa fa-close clr-txt cart-item-remove" data-id="{{ $item->id }}" data-row-id="{{ $item->rowId }}"></i> </div>
                     </li>
                 @endforeach
 

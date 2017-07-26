@@ -16,7 +16,7 @@
             <section class="shop-wrap sec-space">
                 <div class="container"> 
                     <!-- Shopping Cart Starts -->
-                    <div class="cart-table">
+                    <div class="cart-table" id="shopping-cart-table">
                         <table class="product-table">
                             <thead class="">
                             <tr>

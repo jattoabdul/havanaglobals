@@ -51,6 +51,13 @@ Route::post('/cart/update', 'havanaController@cartUpdate')->name('cart_update');
 
 Route::get('/cart/checkout', 'checkoutController@index')->name('cart_checkout');
 Route::post('/address/add', 'checkoutController@addAddress')->name('add_address')->middleware('auth');
+Route::post('/add/order', 'checkoutController@addOrder')->name('add_order')->middleware('auth');
+Route::get('/invoice/pay/{order_id}', 'checkoutController@payInvoice')->name('pay_invoice')->middleware('auth');
+
+//Payment Route
+Route::any('/payment/callback', 'paymentController@paystackCallback')->middleware('auth');
+Route::any('/payment/confirmation', 'paymentController@confirm')->name('confirm_order')->middleware('auth');
+
 
 
 Auth::routes();

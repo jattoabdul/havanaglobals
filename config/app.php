@@ -178,6 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
 		Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
+		Unicodeveloper\Paystack\PaystackServiceProvider::class,
 
     ],
 
@@ -229,6 +230,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
 		'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
+		'Paystack' => Unicodeveloper\Paystack\Facades\Paystack::class,
 
     ],
 

@@ -6,7 +6,7 @@
 
                 @foreach(Cart::content() as $item)
                     <li class="cart-list" id="cart-item-{{ $item->id }}">
-                        <div class="cart-img"> <img src="{{ asset('front/img/extra/cart-sm-1.jpg') }}" alt=""> </div>
+                        <div class="cart-img"> <img src="{{ \App\Product::find($item->id)->images[0]->url }}" alt=""> </div>
                         <div class="cart-title">
                             <div class="fsz-16">
                                 <a href="{{ route('product_detail', ['id'=>$item->id, 'slug'=>\App\Core::slugger($item->name)]) }}" target="_blank"> <span class="light-font"> {{$item->name}}</span></a>

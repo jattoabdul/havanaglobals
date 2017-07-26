@@ -132,7 +132,8 @@
                 @endif
 
                 @if(Auth::check())
-                    <form>
+                    <form class="form form-horizontal" action="{{ route('add_order') }}" method="post" id="make_order" enctype="multipart/form-data">
+                        {{ csrf_field() }}
                         <div class="panel">
                             <div class="chk-heading">
                                 <a class="fsz-30" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
@@ -151,7 +152,7 @@
                                                     <h5>LGA: {{ $address->lga }}</h5>
                                                     <h5>Tel: {{ $address->tel }}</h5>
                                                     <br>
-                                                    <input type="radio" value="{{ $address->id }}" name="billing_info"{{ ($sn==1)?' checked':'' }}>
+                                                    <input type="radio" value="{{ $address->id }}" id="billing_info" name="billing_info"{{ ($sn==1)?' checked':'' }}>
                                                 </div>
                                             </div>
                                             <?php $sn++; ?>
@@ -188,7 +189,7 @@
                                                     <h5>LGA: {{ $address->lga }}</h5>
                                                     <h5>Tel: {{ $address->tel }}</h5>
                                                     <br>
-                                                    <input type="radio" value="{{ $address->id }}" name="shipping_info"{{ ($sn==1)?' checked':'' }}>
+                                                    <input type="radio" value="{{ $address->id }}" id="shipping_info" name="shipping_info"{{ ($sn==1)?' checked':'' }}>
                                                 </div>
                                             </div>
                                             <?php $sn++; ?>
@@ -215,7 +216,8 @@
                             </div>
                             <div id="collapseFour" class="panel-collapse collapse">
                                 <div class="chk-body pt-15 block-inline">
-                                    <p> SHIPPING METHOD HERE </p>
+                                    <input type="radio" value="paystack" name="payment_method" checked> Flat Rate (N1,000)
+                                    <input type="hidden" name="shipping_amount" value="1000">
                                 </div>
                             </div>
                         </div>
@@ -228,7 +230,7 @@
                             </div>
                             <div id="collapseFive" class="panel-collapse collapse">
                                 <div class="chk-body pt-15 block-inline">
-                                    <p> PAYMENT INFORMATION HERE </p>
+                                    <input type="radio" value="paystack" name="payment_method" checked> Online Payment <br />
                                 </div>
                             </div>
                         </div>
@@ -241,12 +243,74 @@
                             </div>
                             <div id="collapseSix" class="panel-collapse collapse">
                                 <div class="chk-body pt-15 block-inline">
-                                    <p> ORDER REVIEW HERE </p>
+                                    <table class="product-table">
+                                        <thead>
+                                        <th>product Image</th>
+                                        <th>Name</th>
+                                        <th>Unit price</th>
+                                        <th>Quantity</th>
+                                        <th>Total price</th>
+                                        </thead>
+                                        <tbody>
+                                            @foreach($cart_items as $item)
+                                                <tr>
+
+                                                    <td class="" style="height: 60px !important;">
+                                                        <div class="white-bg"> <a class="media-link"><img src="{{\App\ProductImage::getSingleProductImage($item->id)}}" alt="" style="height: 100px !important;"></a> </div>
+                                                    </td>
+
+                                                    <td>
+                                                        {{ $item->name }}
+                                                    </td>
+                                                    <td>
+                                                        N{{ number_format($item->price) }}
+                                                    </td>
+                                                    <td>
+                                                        {{ $item->qty }}
+                                                    </td>
+                                                    <td>
+                                                        N{{ number_format((int) $item->qty* (int) $item->price) }}
+                                                    </td>
+                                                </tr>
+
+                                            @endforeach
+                                            <tr>
+
+                                                <td>
+
+                                                </td>
+
+                                                <td>
+
+                                                </td>
+                                                <td>
+
+                                                </td>
+                                                <td>
+                                                    <strong>Shipping:</strong>
+                                                </td>
+                                                <td>
+                                                    N{{ number_format(1000) }}
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th>Total</th>
+                                        <th>N{{ number_format(1000+ (int) str_replace(',','',$cart_total)) }}</th>
+                                        </tfoot>
+                                    </table>
                                 </div>
                             </div>
                         </div>
+
                     </form>
                 @endif
+            </div>
+            <div class="form-group">
+                <button class="btn btn-success btn-lg pull-right" form="make_order" style="color: #ffffff;" type="submit"> Proceed <i class="fa fa-angle-right"></i></button>
             </div>
         </div>
     </section>

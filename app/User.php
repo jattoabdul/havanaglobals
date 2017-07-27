@@ -29,4 +29,5 @@ class User extends Authenticatable
 
     //Relationships
 	public function orders() { return $this->hasMany('App\Order'); }
+	public function wishlist() { return $this->hasOne('App\Wishlist'); }
 }

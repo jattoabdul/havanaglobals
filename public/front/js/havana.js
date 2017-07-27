@@ -162,6 +162,37 @@ $(document).ready(function() {
         });
     });
 
+    $(document).on('click', '.add-to-wishlist', function (e)
+    {
+        e.preventDefault();
+        var btn = $(this); var id = btn.attr('data-id');
+
+        if (id == null) { swal('Info','Login to add items to your wishlist','info'); return;}
+
+        $.post("/wishlist/add", {id:id, _token:_token}, function(response)
+        {
+            if (response.state == 'success') { swal('Success',response.msg,'success'); }
+            if (response.state == 'error') { swal('Error',response.msg,'error'); }
+            if (response.state == 'info') { swal('Info',response.msg,'info'); }
+        });
+    });
+
+    $(document).on('click', '.remove-from-wishlist', function (e)
+    {
+        e.preventDefault();
+        var btn = $(this); var id = btn.attr('data-id'); var btn_title = btn.attr('data-title');
+        btn.html(ajaxSpinner).attr('disabled', 'disabled');
+        $.post("/wishlist/remove", {id:id, _token:_token}, function(response)
+        {
+            if (response.state == 'success') { $('#wish-item-'+id).slideUp(); }
+
+            if (response.state == 'error') { swal('Error',response.msg,'error'); }
+            if (response.state == 'info') { swal('Info',response.msg,'info'); }
+
+            $(btn).html(btn_title).removeAttr('disabled');
+        });
+    });
+
     $(document).on('click','.checkout-continue',function(e)
     {
         e.preventDefault();

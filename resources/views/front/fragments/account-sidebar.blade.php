@@ -9,9 +9,9 @@
             <li> <i class="fa fa-arrow-circle-o-right clr-txt"></i> <a href="{{ route('edit_password') }}"> Change Password</a></li>
             <li> <i class="fa fa-arrow-circle-o-right clr-txt"></i> <a href="{{ route('show_address') }}"> Address Books</a></li>
             <li> <i class="fa fa-arrow-circle-o-right clr-txt"></i> <a href="{{ route('show_orders') }}"> Order History</a></li>
-            <li> <i class="fa fa-arrow-circle-o-right clr-txt"></i> <a href="review-rating.html"> Reviews and Ratings</a></li>
-            <li> <i class="fa fa-arrow-circle-o-right clr-txt"></i> <a href="return.html"> Returns Requests</a></li>
-            <li> <i class="fa fa-arrow-circle-o-right clr-txt"></i> <a href="newsletter.html"> Newsletter</a></li>
+            <li> <i class="fa fa-arrow-circle-o-right clr-txt"></i> <a href="{{ route('show_wishlist') }}"> Wishlist</a></li>
+            <li> <i class="fa fa-arrow-circle-o-right clr-txt"></i> <a href="#"> Newsletter</a></li>
+            <li> <i class="fa fa-arrow-circle-o-right clr-txt"></i> <a href="#"> Reviews and Ratings</a></li>
         </ul>
     </div>
 </aside>

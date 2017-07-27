@@ -39,6 +39,7 @@ Route::group(['namespace'=>'Admin', 'middleware'=>['auth', 'admin']], function (
 
 Route::get('/home', function() { return redirect('/'); });
 Route::get('/', 'havanaController@home')->name('home');
+Route::get('/contact', 'havanaController@contactUs')->name('contact');
 
 Route::get('/product/{id}/{slug}', 'havanaController@productShow')->name('product_detail');
 
@@ -54,6 +55,11 @@ Route::post('/address/add', 'checkoutController@addAddress')->name('add_address'
 Route::post('/add/order', 'checkoutController@addOrder')->name('add_order')->middleware('auth');
 Route::get('/invoice/pay/{order_id}', 'checkoutController@payInvoice')->name('pay_invoice')->middleware('auth');
 
+
+//Wishlist
+Route::post('/wishlist/add', 'havanaController@addToWishlist')->name('wish_add');
+Route::post('/wishlist/remove', 'havanaController@removeFromWishlist')->name('remove_from_wishlist');
+
 //Payment Route
 Route::any('/payment/callback', 'paymentController@paystackCallback')->middleware('auth');
 Route::any('/payment/confirmation', 'paymentController@confirm')->name('confirm_order')->middleware('auth');
@@ -68,6 +74,7 @@ Route::post('/account/addresses/update/{id}', 'accountController@updateAddress')
 Route::get('/account/orders', 'accountController@showOrders')->name('show_orders');
 Route::get('/account/info/edit', 'accountController@editInfo')->name('edit_account');
 Route::post('/account/info/save', 'accountController@saveInfo')->name('save_account');
+Route::get('/account/wishlist', 'accountController@wishlist')->name('show_wishlist');
 
 
 Auth::routes();

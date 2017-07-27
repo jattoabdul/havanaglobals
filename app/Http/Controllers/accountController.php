@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\AddressBook;
 use App\Order;
+use App\Product;
+use App\Wishlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -109,6 +111,21 @@ class accountController extends Controller
 	{
 		return view('front.account.orders', [
 			'orders' => Order::with(['billing_info', 'shipping_info'])->where('user_id', Auth::id())->orderBy('id', 'desc')->get()
+		]);
+	}
+
+	public function wishlist()
+	{
+		$wishlist = Wishlist::where('user_id', Auth::id())->first();
+		$ids = [];
+		foreach(json_decode($wishlist->list) as $item)
+		{
+			$ids[] = $item->id;
+		}
+
+		return view('front.account.wishlist', [
+			'products' => Product::with(['images'])->whereIn('id', $ids)->get(),
+			'list' => json_decode($wishlist->list)
 		]);
 	}
 }

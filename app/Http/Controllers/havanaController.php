@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Product;
+use App\Wishlist;
+use Carbon\Carbon;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use App\Core;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Auth;
 
 class havanaController extends Controller
 {
@@ -16,12 +19,16 @@ class havanaController extends Controller
 	{
 		return view('front.index',
 			[
-				'products'=>Product::with('images')->limit(8)->get(),
-				'deals'=>Product::with('category')->inRandomOrder()->limit(4)->get(),
+				'products'=>Product::with('images')->orderBy('id', 'desc')->limit(12)->get(),
+				'deals'=>Product::with('category')->where('old_price', '!=', null)->inRandomOrder()->limit(4)->get(),
 				'categories'=>Category::all(),
 			]);
 	}
 
+	public function contactUs()
+	{
+		return view('front.contact');
+	}
 	public function productShow(Request $request, $id, $slug="")
 	{
 		$product = Product::with(['category','images'])->where('id',$id)->first();
@@ -89,5 +96,73 @@ class havanaController extends Controller
 	{
 		Cart::update($request->row_id,$request->qty);
 		return redirect()->back()->with('flash_success','Item Quantity Updated');
+	}
+
+	public function addToWishlist(Request $request)
+	{
+		if(Product::where('id', $request->id)->exists())
+		{
+			$wishlist = Wishlist::where('user_id', Auth::id())->first();
+
+			if($wishlist)
+			{
+				$list = json_decode($wishlist->list, true);
+				if(!is_array($list)) { $list = []; }
+
+				if(!array_key_exists('item_'.$request->id, $list))
+				{
+					$list['item_'.$request->id] = ['id' => $request->id, 'created_at' => Carbon::now()->toFormattedDateString()];
+					$wishlist->list = json_encode($list);
+					$wishlist->save();
+
+					$response = ['state'=>'success','msg'=>'The item has been added to your wishlist.'];
+				}
+				else { $response = ['state'=>'info','msg'=>'This item is already on your wishlist.']; }
+			}
+			else
+			{
+				$wishlist = new Wishlist();
+				$wishlist->user_id = Auth::id();
+				$wishlist->list = json_encode(['item_'.$request->id => ['id' => $request->id, 'created_at' => Carbon::now()->toFormattedDateString()]]);
+				$wishlist->save();
+
+				$response = ['state'=>'success','msg'=>'The item has been added to your wishlist.'];
+			}
+		}
+		else { $response = ['state'=>'error','msg'=>'The item you are trying to add to your wishlist does not exist.']; }
+
+
+		if($request->ajax()) { return response()->json($response); }
+		else { return redirect()->back()->with('flash_'.$response['state'], $response['msg']); }
+	}
+
+	public function removeFromWishlist(Request $request)
+	{
+		if(Product::where('id', $request->id)->exists())
+		{
+			$wishlist = Wishlist::where('user_id', Auth::id())->first();
+
+			if($wishlist)
+			{
+				$list = json_decode($wishlist->list, true);
+				if(!is_array($list)) { $list = []; }
+
+				if(array_key_exists('item_'.$request->id, $list))
+				{
+					unset($list['item_'.$request->id]);
+					$wishlist->list = json_encode($list);
+					$wishlist->save();
+
+					$response = ['state'=>'success','msg'=>'The item has been removed from your wishlist.'];
+				}
+				else { $response = ['state'=>'info','msg'=>'This item you are trying to remove is not on your wishlist.']; }
+			}
+			else { $response = ['state'=>'info','msg'=>'There are no items on your wishlist.']; }
+		}
+		else { $response = ['state'=>'error','msg'=>'The item you are trying to remove no longer exists.']; }
+
+
+		if($request->ajax()) { return response()->json($response); }
+		else { return redirect()->back()->with('flash_'.$response['state'], $response['msg']); }
 	}
 }

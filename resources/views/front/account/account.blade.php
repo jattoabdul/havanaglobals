@@ -57,11 +57,11 @@
                                     </li>
                                     <li>
                                         <i class="fa fa-arrow-circle-o-right clr-txt"></i>
-                                        <a href="review-rating.html"> Your reviews and ratings</a>
+                                        <a href="#"> Your reviews and ratings</a>
                                     </li>
                                     <li>
                                         <i class="fa fa-arrow-circle-o-right clr-txt"></i>
-                                        <a href="return.html"> View your retun requests</a>
+                                        <a href="{{ route('show_wishlist') }}"> View your wishlist</a>
                                     </li>
                                 </ul>
                             </div>
@@ -76,7 +76,7 @@
                             <div class="account-body">
                                 <ul class="acnt-list">
                                     <li>
-                                        <a href="newsletter.html"> Subscribe / unsubscribe to newsletter</a>
+                                        <a href="#"> Subscribe / unsubscribe to newsletter</a>
                                     </li>
                                 </ul>
                             </div>

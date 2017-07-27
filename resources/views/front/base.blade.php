@@ -72,10 +72,12 @@
                             </ul>
                         </li>
                         --}}
-                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="{{ route('contact') }}">Contact Us</a></li>
                         @if(Auth::check())
-                        <li><a href="javascript:;" onclick="document.getElementById('logout-form').submit();">Logout</a></li>
                         <li class="@yield('account-active')"><a href="{{ route('user_account') }}">My Account</a></li>
+                        <li><a href="javascript:;" onclick="document.getElementById('logout-form').submit();">Logout</a></li>
+                        @else
+                        <li class="@yield('login-active')"><a href="{{ route('login') }}">Login / Register</a></li>
                         @endif
                     </ul>
                 </nav>
@@ -143,7 +145,7 @@
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-4 footer-widget">
-                        <h2 class="title-1">  <span class="light-font">naturix  </span> <strong>information </strong> </h2>
+                        <h2 class="title-1">  <span class="light-font">havana  </span> <strong>information </strong> </h2>
                         <span class="divider-2"></span>
                         <ul class="list">
                             <li> <a href="#"> about our shop </a> </li>
@@ -157,13 +159,13 @@
                         <h2 class="title-1">  <span class="light-font">my  </span> <strong>account </strong> </h2>
                         <span class="divider-2"></span>
                         <ul class="list">
-                            <li> <a href="my-account.html"> my account </a> </li>
-                            <li><a href="account-information.html"> Account Information </a></li>
-                            <li><a href="address-book.html"> Address Books</a></li>
-                            <li><a href="order-history.html"> Order History</a></li>
-                            <li><a href="review-rating.html"> Reviews and Ratings</a></li>
-                            <li><a href="return.html"> Returns Requests</a></li>
-                            <li><a href="newsletter.html"> Newsletter</a></li>
+                            <li> <a href="{{ route('user_account') }}"> my account </a> </li>
+                            <li><a href="{{ route('edit_account') }}"> Account Information </a></li>
+                            <li><a href="{{ route('show_address') }}"> Address Books</a></li>
+                            <li><a href="{{ route('show_orders') }}"> Order History</a></li>
+                            <li><a href="#"> Reviews and Ratings</a></li>
+                            <li><a href="{{ route('show_wishlist') }}"> Wishlist</a></li>
+                            <li><a href="#"> Newsletter</a></li>
                         </ul>
                     </div>
                     <div class="col-md-3 col-sm-4 footer-widget">
@@ -189,11 +191,11 @@
             <div class="container ptb-50">
                 <div class="row">
                     <div class="col-md-6 col-sm-5">
-                        <p>©2016 <a href="#"> <strong> havanaglobals.com</strong> </a>, made with <i class="fa fa-heart red-clr"></i> by CodeSquad, all right reserved</p>
+                        <p>©2016 <a href="#"> <strong> havanaglobals.com</strong> </a>, made with <i class="fa fa-heart red-clr"></i> by <a target="_blank" href="https://squaresoftng.com">SquareSoft Nigeria</a>, all right reserved</p>
                     </div>
                     <div class="col-md-6 col-sm-7">
                         <ul class="primary-navbar footer-menu">
-                            <li> <a href="#">contact us </a> </li>
+                            <li> <a href="{{ route('contact') }}">contact us </a> </li>
                             <li> <a href="#">term of use  </a> </li>
                             <li> <a href="#">site map  </a> </li>
                             <li> <a href="#">privacy policy</a> </li>
@@ -209,7 +211,7 @@
 <!-- /WRAPPER -->
 
 <!-- Product Preview Popup -->
-<section class="modal fade" id="product-preview" tabindex="-1" role="dialog" aria-hidden="true">
+<section class="modal fade in" id="product-preview" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg product-modal">
         <div class="modal-content">
             <a aria-hidden="true" data-dismiss="modal" class="sb-close-btn close" href="#"> <i class=" fa fa-close"></i> </a>

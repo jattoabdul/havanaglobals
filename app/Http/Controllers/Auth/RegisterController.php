@@ -75,7 +75,9 @@ class RegisterController extends Controller
         ]);
     }
 
-    public function guestRegister(Request $request)
+    public function showRegistrationForm() { return redirect('/login'); }
+
+	public function guestRegister(Request $request)
 	{
 		$this->validate($request, [
 			'first_name' => 'required|string|max:250',

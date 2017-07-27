@@ -47,9 +47,9 @@
                                                 <img class="prod-img" style="cursor: pointer;" data-url="{{ route('product_detail', ['id'=>$product->id, 'slug'=>\App\Core::slugger($product->name)]) }}" alt="" src="{{ $product->images()->first()->url }}" />
                                                 <img class="shape" alt="" src="{{ asset('front/img/icons/shap-small.png') }}" />
                                                 <div class="prod-icons">
-                                                    <!-- <a href="#" class="fa fa-heart"></a> -->
+                                                    <a href="javascript:;" class="fa fa-heart add-to-wishlist" @if(Auth::check()) data-id="{{ $product->id }}" @endif></a>
                                                     <a href="javascript:;" @if($product->qty>0) data-id="{{ $product->id }}" @endif data-title="" class="fa fa-shopping-basket{{ ($product->qty>0)?' add-to-cart':'' }}"></a>
-                                                    <a href="#product-preview" data-toggle="modal" class="fa fa-expand"></a>
+                                                    <a href="#product-preview" data-id="{{ $product->id }}" data-toggle="modal" class="fa fa-expand"></a>
                                                 </div>
                                             </div>
                                             <div class="product-caption">
@@ -78,9 +78,9 @@
                                             <img class="prod-img" style="cursor: pointer;" data-url="{{ route('product_detail', ['id'=>$product->id, 'slug'=>\App\Core::slugger($product->name)]) }}" alt="" src="{{ $product->images()->first()->url }}" />
                                             <img class="shape" alt="" src="{{ asset('front/img/icons/shap-small.png') }}" />
                                             <div class="prod-icons">
-                                                <!-- <a href="#" class="fa fa-heart"></a> -->
+                                                <a href="javascript:;" class="fa fa-heart add-to-wishlist" @if(Auth::check()) data-id="{{ $product->id }}" @endif></a>
                                                 <a href="javascript:;" @if($product->qty>0) data-id="{{ $product->id }}" @endif data-title="" class="fa fa-shopping-basket{{ ($product->qty>0)?' add-to-cart':'' }}"></a>
-                                                <a href="#product-preview" data-toggle="modal" class="fa fa-expand"></a>
+                                                <a href="#product-preview" data-id="{{ $product->id }}" data-toggle="modal" class="fa fa-expand"></a>
                                             </div>
                                         </div>
                                         <div class="product-caption">
@@ -133,13 +133,13 @@
                         <div class="item">
                             <div class="deal-item">
                                 <div class="deal-icons">
-                                    <a href="#" class="fa fa-heart"></a>
-                                    <a href="#" class="fa fa-shopping-basket"></a>
-                                    <a href="#product-preview" data-toggle="modal" class="fa fa-expand"></a>
+                                    <a href="javascript:;" class="fa fa-heart add-to-wishlist" @if(Auth::check()) data-id="{{ $product->id }}" @endif></a>
+                                    <a href="javascript:;" @if($product->qty>0) data-id="{{ $product->id }}" @endif data-title="" class="fa fa-shopping-basket{{ ($product->qty>0)?' add-to-cart':'' }}"></a>
+                                    <a href="#product-preview" data-id="{{ $product->id }}" data-toggle="modal" class="fa fa-expand"></a>
                                 </div>
                                 <div class="deal-content">
                                     <div class="deal-text">
-                                        <h4 class="sub-title"> {{ $product->category()->first()->name }} </h4>
+                                        <h4 class="sub-title"> {{ $product->category[0]->name }} </h4>
                                         <h2 class="fsz-30 pb-15"> <a href="{{ route('product_detail', ['id'=>$product->id, 'slug'=>\App\Core::slugger($product->name)]) }}"> <span class="light-font">{{ $product->name }} </span> </a> </h2>
                                         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy...</p>
                                         <div class="price pt-15">

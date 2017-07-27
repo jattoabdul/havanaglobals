@@ -1,4 +1,5 @@
 @extends('front.base')
+@section('login-active', 'active')
 @section('content')
 
     <!--Breadcrumb Section Start-->

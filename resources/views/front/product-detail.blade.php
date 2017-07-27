@@ -149,9 +149,9 @@
                                                     <img class="prod-img" style="cursor: pointer;" data-url="{{ route('product_detail', ['id'=>$product->id, 'slug'=>\App\Core::slugger($product->name)]) }}" alt="" src="{{ $product->images()->first()->url }}" />
                                                     <img class="shape" alt="" src="{{ asset('front/img/icons/shap-small.png') }}" />
                                                     <div class="prod-icons">
-                                                        <!-- <a href="#" class="fa fa-heart"></a> -->
+                                                        <a href="javascript:;" class="fa fa-heart add-to-wishlist" @if(Auth::check()) data-id="{{ $product->id }}" @endif></a>
                                                         <a href="javascript:;" @if($product->qty>0) data-id="{{ $product->id }}" @endif data-title="" class="fa fa-shopping-basket{{ ($product->qty>0)?' add-to-cart':'' }}"></a>
-                                                        <a href="#product-preview" data-toggle="modal" class="fa fa-expand"></a>
+                                                        <a href="#product-preview" data-id="{{ $product->id }}" data-toggle="modal" class="fa fa-expand"></a>
                                                     </div>
                                                 </div>
                                                 <div class="product-caption">

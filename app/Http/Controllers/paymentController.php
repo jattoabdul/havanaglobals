@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Order;
 use App\Payment;
 use App\Product;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Paystack;
 
@@ -60,10 +59,7 @@ class paymentController extends Controller
 		else
 		{
 			$order->status = 2;
-			foreach(json_decode($order->products) as $item)
-			{
-				Cart::add(['id'=>$item->id,'name'=>$item->name,'qty'=>$item->qty,'price'=>$item->price]);
-			}
+			foreach(json_decode($order->products) as $item) { Cart::add(['id'=>$item->id,'name'=>$item->name,'qty'=>$item->qty,'price'=>$item->price]); }
 			$msg = "Transaction failed: ".$msg;
 		}
 
@@ -74,13 +70,7 @@ class paymentController extends Controller
 
 	public function confirm()
 	{
-		if(session('msg'))
-		{
-			return view('front.confirm');
-		}
-		else
-		{
-			return redirect('/');
-		}
+		if(session('msg')) { return view('front.confirm'); }
+		else { return redirect('/'); }
 	}
 }

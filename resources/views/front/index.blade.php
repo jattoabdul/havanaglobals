@@ -46,7 +46,7 @@
                                             <img class="shape" alt="" src="{{ asset('front/img/icons/shap-small.png') }}" />
                                             <div class="prod-icons">
                                                 <!-- <a href="#" class="fa fa-heart"></a> -->
-                                                <a href="javascript:;" @if($product->qty>0) data-id="{{ $product->id }} @endif" data-title="" class="fa fa-shopping-basket{{ ($product->qty>0)?' add-to-cart':'' }}"></a>
+                                                <a href="javascript:;" @if($product->qty>0) data-id="{{ $product->id }}" @endif data-title="" class="fa fa-shopping-basket{{ ($product->qty>0)?' add-to-cart':'' }}"></a>
                                                 <a href="#product-preview" data-toggle="modal" class="fa fa-expand"></a>
                                             </div>
                                         </div>

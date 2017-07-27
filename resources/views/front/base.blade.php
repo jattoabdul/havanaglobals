@@ -73,6 +73,7 @@
                         <li><a href="contact.html">Contact Us</a></li>
                         @if(Auth::check())
                         <li><a href="javascript:;" onclick="document.getElementById('logout-form').submit();">Logout</a></li>
+                        <li><a href="{{ route('user_account') }}">My Account</a></li>
                         @endif
                     </ul>
                 </nav>

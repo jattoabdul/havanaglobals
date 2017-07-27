@@ -67,7 +67,7 @@
                                     {{ csrf_field() }}
                                 </form>
 
-                                <form id="checkout-register-form" action="/register" class="register-form" style="display: none">
+                                <form id="checkout-register-form" action="/register" method="post" class="register-form" style="display: none">
                                     <h2 class="title-1"> Register</h2>
                                     <p class=""> Please register below : </p>
                                     <p class="text-danger" style="color: red !important;" id="register-error-response"></p>
@@ -99,7 +99,7 @@
                                     {{ csrf_field() }}
                                 </form>
 
-                                <form id="checkout-guest-form" action="{{ route('guest_register') }}" class="guest-form" style="display: none">
+                                <form id="checkout-guest-form" action="{{ route('guest_register') }}" method="post" class="guest-form" style="display: none">
                                     <h2 class="title-1"> Guest Checkout</h2>
                                     <p class=""> Please fill the form below : </p>
                                     <p class="text-danger" style="color: red !important;" id="guest-error-response"></p>
@@ -195,13 +195,13 @@
                                             <?php $sn++; ?>
                                         @endforeach
 
-                                        <div class="col-md-3 panel">
-                                            <div class="panel-body text-center"  style="background: #eeeeee !important;">
-                                                <a href="#address-form"><i class="fa fa-plus fa-5x"></i></a>
-                                                <br />
-                                                <h5>Add New</h5>
+                                            <div class="col-md-3 panel">
+                                                <div class="panel-body text-center"  style="background: #eeeeee !important;">
+                                                    <a href="#address-form" data-toggle="modal" ><i class="fa fa-plus fa-5x"></i></a>
+                                                    <br />
+                                                    <h5>Add New</h5>
+                                                </div>
                                             </div>
-                                        </div>
                                     </div>
 
                                 </div>
@@ -317,7 +317,7 @@
     <!-- / Checkout Ends -->
 
     @if(Auth::check())
-    <section class="modal fade" id="address-form" tabindex="-1" role="dialog" aria-hidden="false">
+    <section class="modal fade" id="address-form" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg product-modal">
             <div class="modal-content">
                 <a aria-hidden="true" data-dismiss="modal" class="sb-close-btn close" href="#"> <i class=" fa fa-close"></i> </a>

@@ -58,6 +58,15 @@ Route::get('/invoice/pay/{order_id}', 'checkoutController@payInvoice')->name('pa
 Route::any('/payment/callback', 'paymentController@paystackCallback')->middleware('auth');
 Route::any('/payment/confirmation', 'paymentController@confirm')->name('confirm_order')->middleware('auth');
 
+//Account
+Route::get('/account', 'accountController@index')->name('user_account');
+Route::get('/account/password/change', 'accountController@editPassword')->name('edit_password');
+Route::post('/account/password/update', 'accountController@updatePassword')->name('update_password');
+Route::get('/account/addresses', 'accountController@addressBook')->name('show_address');
+Route::get('/account/addresses/edit/{id}', 'accountController@editAddress')->name('edit_address');
+Route::post('/account/addresses/update/{id}', 'accountController@updateAddress')->name('update_address');
+Route::get('/account/info/edit', 'accountController@editInfo')->name('edit_account');
+Route::post('/account/info/save', 'accountController@saveInfo')->name('save_account');
 
 
 Auth::routes();

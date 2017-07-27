@@ -134,54 +134,6 @@
                                             </div>
                                         </div>
 
-                                        <div class="review-wrap">
-                                            <div class="review-img">
-                                                <a href="#"> <img alt="" src="assets/img/extra/review-1.png" /> </a>
-                                            </div>
-                                            <div class="review-caption">
-                                                <h4 class="title fsz-16">
-                                                    <a href="#">Luis Nazario Garcia</a>
-                                                    <span class="fsz-10 gray-color">26 JUNE 2016</span>
-                                                </h4>
-                                                <div class="rating">
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="fsz-12 gray-color"> Rating : 5/5 </span>
-                                                </div>
-
-                                                <div class="block-inline pera">
-                                                    <p>Lorem ipsum dolor sit amet, consectetuer adiping elit food sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat adiping elit food sed diam nonummy nibh euismod tincidunt ut laoreet dolore. </p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="review-wrap">
-                                            <div class="review-img">
-                                                <a href="#"> <img alt="" src="assets/img/extra/review-1.png" /> </a>
-                                            </div>
-                                            <div class="review-caption">
-                                                <h4 class="title fsz-16">
-                                                    <a href="#">Luis Nazario Garcia</a>
-                                                    <span class="fsz-10 gray-color">26 JUNE 2016</span>
-                                                </h4>
-                                                <div class="rating">
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="star active"></span>
-                                                    <span class="fsz-12 gray-color"> Rating : 5/5 </span>
-                                                </div>
-
-                                                <div class="block-inline pera">
-                                                    <p>Lorem ipsum dolor sit amet, consectetuer adiping elit food sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat adiping elit food sed diam nonummy nibh euismod tincidunt ut laoreet dolore. </p>
-                                                </div>
-                                            </div>
-                                        </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -189,117 +141,31 @@
                             <div class="you-like organic-content pb-50">
                                 <h3 class="fsz-20 pb-15 text-center"><span class="light-font">Related  </span> <strong>Products </strong>  </h3>
                                 <div class="divider-full-1"></div>
-                                <div id="rel-prod-slider" class="rel-prod-slider nav-1">                                        
-                                    <div class="item"> 
-                                        <div class="product-box"> 
-                                            <div class="product-media"> 
-                                                <img class="prod-img" alt="" src="assets/img/products/1.png" />     
-                                                <img class="shape" alt="" src="assets/img/icons/shap-small.png" />  
-                                                <div class="prod-icons"> 
-                                                    <a href="#" class="fa fa-heart"></a>
-                                                    <a href="#" class="fa fa-shopping-basket"></a>
-                                                    <a  href="#product-preview" data-toggle="modal" class="fa fa-expand"></a>
+                                <div id="rel-prod-slider" class="rel-prod-slider nav-1">
+                                    @foreach($related as $product)
+                                        <div class="item">
+                                            <div class="product-box">
+                                                <div class="product-media">
+                                                    <img class="prod-img" style="cursor: pointer;" data-url="{{ route('product_detail', ['id'=>$product->id, 'slug'=>\App\Core::slugger($product->name)]) }}" alt="" src="{{ $product->images()->first()->url }}" />
+                                                    <img class="shape" alt="" src="{{ asset('front/img/icons/shap-small.png') }}" />
+                                                    <div class="prod-icons">
+                                                        <!-- <a href="#" class="fa fa-heart"></a> -->
+                                                        <a href="javascript:;" @if($product->qty>0) data-id="{{ $product->id }}" @endif data-title="" class="fa fa-shopping-basket{{ ($product->qty>0)?' add-to-cart':'' }}"></a>
+                                                        <a href="#product-preview" data-toggle="modal" class="fa fa-expand"></a>
+                                                    </div>
                                                 </div>
-                                            </div>                                           
-                                            <div class="product-caption"> 
-                                                <h3 class="product-title">
-                                                    <a href="#"> <span class="light-font"> organic </span>  <strong>tomato</strong></a>
-                                                </h3>
-                                                <div class="price"> 
-                                                    <strong class="clr-txt">$50.00 </strong>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item"> 
-                                        <div class="product-box"> 
-                                            <div class="product-media"> 
-                                                <img class="prod-img" alt="" src="assets/img/products/2.png" />     
-                                                <img class="shape" alt="" src="assets/img/icons/shap-small.png" />
-                                                <div class="prod-icons"> 
-                                                    <a href="#" class="fa fa-heart"></a>
-                                                    <a href="#" class="fa fa-shopping-basket"></a>
-                                                    <a  href="#product-preview" data-toggle="modal" class="fa fa-expand"></a>
-                                                </div>
-                                            </div>
-
-                                            <div class="product-caption"> 
-                                                <h3 class="product-title">
-                                                    <a href="#"> <span class="light-font"> organic </span>  <strong>cabbege</strong></a>
-                                                </h3>
-                                                <div class="price"> 
-                                                    <strong class="clr-txt">$50.00 </strong>
+                                                <div class="product-caption">
+                                                    <h3 class="product-title">
+                                                        <a href="{{ route('product_detail', ['id'=>$product->id, 'slug'=>\App\Core::slugger($product->name)]) }}"> <span class="light-font"> {{$product->name}} </span></a>
+                                                    </h3>
+                                                    <div class="price">
+                                                        <strong class="clr-txt"> N{{number_format($product->price)}} </strong>
+                                                        {{--  @if( $product->old_price ) <del class="light-font">{{ $product->old_price }} </del> @ednif  --}}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="item"> 
-                                        <div class="product-box active"> 
-                                            <div class="product-media"> 
-                                                <img class="prod-img" alt="" src="assets/img/products/3.png" />     
-                                                <img class="shape" alt="" src="assets/img/icons/shap-small.png" />
-                                                <div class="prod-icons"> 
-                                                    <a href="#" class="fa fa-heart"></a>
-                                                    <a href="#" class="fa fa-shopping-basket"></a>
-                                                    <a  href="#product-preview" data-toggle="modal" class="fa fa-expand"></a>
-                                                </div>
-                                            </div>
-
-                                            <div class="product-caption"> 
-                                                <h3 class="product-title">
-                                                    <a href="#"> <span class="light-font"> organic </span>  <strong>cherry</strong></a>
-                                                </h3>
-                                                <div class="price"> 
-                                                    <strong class="clr-txt">$50.00 </strong> <del class="light-font">$65.00 </del>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item"> 
-                                        <div class="product-box"> 
-                                            <div class="product-media"> 
-                                                <img class="prod-img" alt="" src="assets/img/products/4.png" />     
-                                                <img class="shape" alt="" src="assets/img/icons/shap-small.png" />
-                                                <span class="prod-tag tag-1">new</span> <span class="prod-tag tag-2">sale</span>
-                                                <div class="prod-icons"> 
-                                                    <a href="#" class="fa fa-heart"></a>
-                                                    <a href="#" class="fa fa-shopping-basket"></a>
-                                                    <a  href="#product-preview" data-toggle="modal" class="fa fa-expand"></a>
-                                                </div>
-                                            </div>
-
-                                            <div class="product-caption"> 
-                                                <h3 class="product-title">
-                                                    <a href="#"> <span class="light-font"> organic </span>  <strong>salad</strong></a>
-                                                </h3>
-                                                <div class="price"> 
-                                                    <strong class="clr-txt">$50.00 </strong>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item"> 
-                                        <div class="product-box"> 
-                                            <div class="product-media"> 
-                                                <img class="prod-img" alt="" src="assets/img/products/5.png" />     
-                                                <img class="shape" alt="" src="assets/img/icons/shap-small.png" />
-                                                <div class="prod-icons"> 
-                                                    <a href="#" class="fa fa-heart"></a>
-                                                    <a href="#" class="fa fa-shopping-basket"></a>
-                                                    <a  href="#product-preview" data-toggle="modal" class="fa fa-expand"></a>
-                                                </div>
-                                            </div>
-
-                                            <div class="product-caption"> 
-                                                <h3 class="product-title">
-                                                    <a href="#"> <span class="light-font"> organic </span>  <strong>pineapple</strong></a>
-                                                </h3>
-                                                <div class="price"> 
-                                                    <strong class="clr-txt">$50.00 </strong>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                             
@@ -332,15 +198,25 @@
                                     </div>
 
                                     <form class="review-form row">
-                                        <div class="form-group col-sm-4">
-                                            <input class="form-control" placeholder="Name" required="" type="text">                                                                                     
+                                        @if(Auth::check())
+                                        <div class="form-group col-sm-6">
+                                            <input class="form-control" placeholder="Full Name" required="" type="text">
                                         </div>
-                                        <div class="form-group col-sm-4">
+                                        <div class="form-group col-sm-6">
                                             <input class="form-control" placeholder="Email" required="" type="email">                                                                                     
                                         </div>
+                                        @else
                                         <div class="form-group col-sm-4">
-                                            <input class="form-control" placeholder="Website" type="text">                                                                                     
+                                            <input class="form-control" placeholder="Full Name" required="" type="text">
                                         </div>
+                                        <div class="form-group col-sm-4">
+                                            <input class="form-control" placeholder="Email" required="" type="email">
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <input class="form-control" placeholder="tel" type="text">
+                                        </div>
+                                        @endif
+
                                         <div class="form-group col-sm-12">
                                             <textarea class="form-control"  placeholder="Message" cols="12" rows="4"></textarea>                                                                                     
                                         </div>

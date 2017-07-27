@@ -65,6 +65,7 @@ Route::post('/account/password/update', 'accountController@updatePassword')->nam
 Route::get('/account/addresses', 'accountController@addressBook')->name('show_address');
 Route::get('/account/addresses/edit/{id}', 'accountController@editAddress')->name('edit_address');
 Route::post('/account/addresses/update/{id}', 'accountController@updateAddress')->name('update_address');
+Route::get('/account/orders', 'accountController@showOrders')->name('show_orders');
 Route::get('/account/info/edit', 'accountController@editInfo')->name('edit_account');
 Route::post('/account/info/save', 'accountController@saveInfo')->name('save_account');
 

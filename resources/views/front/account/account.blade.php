@@ -1,4 +1,5 @@
 @extends('front.base')
+@section('account-active', 'active')
 @section('content')
 <!--Breadcrumb Section Start-->
 <section class="breadcrumb-bg">
@@ -32,11 +33,11 @@
                                     </li>
                                     <li>
                                         <i class="fa fa-arrow-circle-o-right clr-txt"></i>
-                                        <a href="cng-pw.html"> Change your password</a>
+                                        <a href="{{ route('edit_password') }}"> Change your password</a>
                                     </li>
                                     <li>
                                         <i class="fa fa-arrow-circle-o-right clr-txt"></i>
-                                        <a href="address-book.html"> Modify your address book entries</a>
+                                        <a href="{{ route('show_address') }}"> Modify your address book entries</a>
                                     </li>
                                 </ul>
                             </div>
@@ -52,7 +53,7 @@
                                 <ul class="acnt-list">
                                     <li>
                                         <i class="fa fa-arrow-circle-o-right clr-txt"></i>
-                                        <a href="order-history.html"> View your order history</a>
+                                        <a href="{{ route('show_orders') }}"> View your order history</a>
                                     </li>
                                     <li>
                                         <i class="fa fa-arrow-circle-o-right clr-txt"></i>

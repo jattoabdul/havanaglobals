@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\AddressBook;
+use App\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -102,5 +103,12 @@ class accountController extends Controller
 		$address->save();
 
 		return redirect()->route('show_address')->with('flash_success', 'The address was updated.');
+	}
+
+	public function showOrders()
+	{
+		return view('front.account.orders', [
+			'orders' => Order::with(['billing_info', 'shipping_info'])->where('user_id', Auth::id())->orderBy('id', 'desc')->get()
+		]);
 	}
 }

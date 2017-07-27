@@ -7,6 +7,7 @@ use App\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use App\Core;
+use Illuminate\Support\Collection;
 
 class havanaController extends Controller
 {
@@ -17,7 +18,7 @@ class havanaController extends Controller
 			[
 				'products'=>Product::with('images')->limit(8)->get(),
 				'deals'=>Product::with('category')->inRandomOrder()->limit(4)->get(),
-				'categories'=>Category::get(),
+				'categories'=>Category::all(),
 			]);
 	}
 
@@ -26,10 +27,18 @@ class havanaController extends Controller
 		$product = Product::with(['category','images'])->where('id',$id)->first();
 
 		if($product==null){ return redirect()->route('error_404'); }
+
+		$related = new Collection();
+		foreach ($product->category as $category)
+		{
+			$related = $related->merge($category->products()->limit(4)->get());
+		}
+
 		return view('front.product-detail',
 			[
 				'product'=>$product,
 				'stock'=>$product->qty,
+				'related' => $related
 			]);
 	}
 

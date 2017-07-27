@@ -1,4 +1,5 @@
 @extends('front.base')
+@section('account-active', 'active')
 @section('content')
     <!--Breadcrumb Section Start-->
     <section class="breadcrumb-bg">

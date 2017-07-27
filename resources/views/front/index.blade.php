@@ -1,5 +1,6 @@
 @extends('front.base')
 
+@section('home-active', 'active')
 @section('content')
 
             <!-- Main Slider Start -->
@@ -29,16 +30,48 @@
 
                     <div class="tabs-box text-center">
                         <ul class="theme-tabs small">
+                            <li class="active"><a href="#naturix-tab-0" data-toggle="tab"> <span class="light-font">All</span> </a></li>
                             @foreach($categories as $category)
-                            <li class=""><a href="#naturix-tab-1" data-toggle="tab"> <span class="light-font">{{ $category->name }} </span> </a></li>
+                            <li class=""><a href="#naturix-tab-{{ $category->id }}" data-toggle="tab"> <span class="light-font">{{ $category->name }} </span> </a></li>
                             @endforeach
                         </ul>
                     </div>
 
                     <div class="tab-content organic-content row">
-                        <div id="naturix-tab-1" class="tab-pane fade active in">
+                        <div id="naturix-tab-0" class="tab-pane fade active in">
                             <div class="naturix-slider-1 dots-1">
                                 @foreach($products as $product)
+                                    <div class="item">
+                                        <div class="product-box">
+                                            <div class="product-media">
+                                                <img class="prod-img" style="cursor: pointer;" data-url="{{ route('product_detail', ['id'=>$product->id, 'slug'=>\App\Core::slugger($product->name)]) }}" alt="" src="{{ $product->images()->first()->url }}" />
+                                                <img class="shape" alt="" src="{{ asset('front/img/icons/shap-small.png') }}" />
+                                                <div class="prod-icons">
+                                                    <!-- <a href="#" class="fa fa-heart"></a> -->
+                                                    <a href="javascript:;" @if($product->qty>0) data-id="{{ $product->id }}" @endif data-title="" class="fa fa-shopping-basket{{ ($product->qty>0)?' add-to-cart':'' }}"></a>
+                                                    <a href="#product-preview" data-toggle="modal" class="fa fa-expand"></a>
+                                                </div>
+                                            </div>
+                                            <div class="product-caption">
+                                                <h3 class="product-title">
+                                                    <a href="{{ route('product_detail', ['id'=>$product->id, 'slug'=>\App\Core::slugger($product->name)]) }}"> <span class="light-font"> {{$product->name}} </span></a>
+                                                </h3>
+                                                <div class="price">
+                                                    <strong class="clr-txt"> N{{number_format($product->price)}} </strong>
+                                                    {{--  @if( $product->old_price ) <del class="light-font">{{ $product->old_price }} </del> @ednif  --}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+
+                            </div>
+                        </div>
+
+                        @foreach($categories as $category)
+                        <div id="naturix-tab-{{ $category->id }}" class="tab-pane fade">
+                            <div class="naturix-slider-1 dots-1">
+                                @foreach($category->products()->orderBy('id', 'desc')->limit(12)->get() as $product)
                                 <div class="item">
                                     <div class="product-box">
                                         <div class="product-media">
@@ -65,6 +98,7 @@
 
                             </div>
                         </div>
+                        @endforeach
                     </div>
 
                 </div>

@@ -59,8 +59,9 @@
                 <nav class="fix-navbar" id="primary-navigation">
                     <form action="/logout" method="post" id="logout-form">{{ csrf_field() }}</form>
                     <ul class="primary-navbar">
-                        <li class="dropdown active"> <a href="{{ route('home') }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" >Home</a> </li>
-                        <li><a href="about-us.html">About</a></li>
+                        <li class="@yield('home-active')"> <a href="{{ route('home') }}">Home</a> </li>
+                        <li class="@yield('about-active')"><a href="about-us.html">About</a></li>
+                        {{--
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" >Categories</a>
                             <ul class="dropdown-menu">
@@ -70,10 +71,11 @@
                                 <li><a href="my-account.html"> my account </a></li>
                             </ul>
                         </li>
+                        --}}
                         <li><a href="contact.html">Contact Us</a></li>
                         @if(Auth::check())
                         <li><a href="javascript:;" onclick="document.getElementById('logout-form').submit();">Logout</a></li>
-                        <li><a href="{{ route('user_account') }}">My Account</a></li>
+                        <li class="@yield('account-active')"><a href="{{ route('user_account') }}">My Account</a></li>
                         @endif
                     </ul>
                 </nav>
@@ -90,129 +92,26 @@
                     <div class="mega-dropdown-menu">
                         <a class="menu-toggle fa fa-close" href="#">  </a>
                         <div class="slider-mega-menu">
-                            <div class="menu-block">
+                            @foreach(\App\Category::all() as $category)
+                                <div class="menu-block">
                                 <div class="menu-caption">
-                                    <h2 class="menu-title"> <span class="light-font"> Fresh </span>  <strong>Fruits</strong> </h2>
+                                    <h2 class="menu-title"> <a href="#"><span class="light-font">  </span>  <strong> {{ $category->name }}</strong> </a></h2>
+                                    {{--
                                     <ul class="sub-list">
                                         <li> <a href="#">Banana</a> </li>
-                                        <li> <a href="#">Water Melon </a> </li>
-                                        <li> <a href="#">Blackberry </a> </li>
-                                        <li> <a href="#">Plume</a> </li>
-                                        <li> <a href="#">Orange</a> </li>
-                                        <li> <a href="#">Lemon</a> </li>
-                                        <li> <a href="#">Pineapple</a> </li>
-                                        <li> <a href="#">Apple</a> </li>
-                                        <li> <a href="#">Kiwi</a> </li>
                                     </ul>
+                                    --}}
                                     <h2 class="title"> <a href="#" class="clr-txt"> All Fruits </a> </h2>
                                 </div>
                                 <div class="menu-img">
-                                    <img alt="" src="{{ asset('front/img/extra/menu-1.png') }}" />
+                                    <img alt="" src="{{ $category->img }}" />
                                 </div>
                             </div>
-                            <div class="menu-block">
-                                <div class="menu-caption">
-                                    <h2 class="menu-title"> <span class="light-font"> Fresh </span>  <strong>Vegetables</strong> </h2>
-                                    <ul class="sub-list">
-                                        <li> <a href="#">Cabbage</a> </li>
-                                        <li> <a href="#">Garlic </a> </li>
-                                        <li> <a href="#">Onion </a> </li>
-                                        <li> <a href="#">Plume</a> </li>
-                                        <li> <a href="#">Carrot</a> </li>
-                                        <li> <a href="#">Papper</a> </li>
-                                        <li> <a href="#">Mushrome</a> </li>
-                                        <li> <a href="#">Apple</a> </li>
-                                        <li> <a href="#">Kiwi</a> </li>
-                                    </ul>
-                                    <h2 class="title"> <a href="#" class="clr-txt"> All Vegetables </a> </h2>
-                                </div>
-                                <div class="menu-img">
-                                    <img alt="" src="{{ asset('front/img/extra/menu-2.png') }}" />
-                                </div>
-                            </div>
-                            <div class="menu-block">
-                                <div class="menu-caption">
-                                    <h2 class="menu-title"> <span class="light-font"> Fresh </span>  <strong>Dread Juices</strong> </h2>
-                                    <ul class="sub-list">
-                                        <li> <a href="#">Banana Juice</a> </li>
-                                        <li> <a href="#">Water Melon Juice</a> </li>
-                                        <li> <a href="#">Blackberry Juice</a> </li>
-                                        <li> <a href="#">Plume Juice</a> </li>
-                                        <li> <a href="#">Orange Juice</a> </li>
-                                        <li> <a href="#">Lemon Juice</a> </li>
-                                        <li> <a href="#">Pineapple Juice</a> </li>
-                                        <li> <a href="#">Apple Juice</a> </li>
-                                        <li> <a href="#">Kiwi Juice</a> </li>
-                                    </ul>
-                                    <h2 class="title"> <a href="#" class="clr-txt"> All Dread juices </a> </h2>
-                                </div>
-                                <div class="menu-img">
-                                    <img alt="" src="{{ asset('front/img/extra/menu-3.png') }}" />
-                                </div>
-                            </div>
-                            <div class="menu-block">
-                                <div class="menu-caption">
-                                    <h2 class="menu-title"> <span class="light-font"> Fresh </span>  <strong>Juices</strong> </h2>
-                                    <ul class="sub-list">
-                                        <li> <a href="#">Banana Juice</a> </li>
-                                        <li> <a href="#">Water Melon Juice</a> </li>
-                                        <li> <a href="#">Blackberry Juice</a> </li>
-                                        <li> <a href="#">Plume Juice</a> </li>
-                                        <li> <a href="#">Orange Juice</a> </li>
-                                        <li> <a href="#">Lemon Juice</a> </li>
-                                        <li> <a href="#">Pineapple Juice</a> </li>
-                                        <li> <a href="#">Apple Juice</a> </li>
-                                        <li> <a href="#">Kiwi Juice</a> </li>
-                                    </ul>
-                                    <h2 class="title"> <a href="#" class="clr-txt"> All Fresh Juices </a> </h2>
-                                </div>
-                                <div class="menu-img">
-                                    <img alt="" src="{{ asset('front/img/extra/menu-1.png') }}" />
-                                </div>
-                            </div>
-                            <div class="menu-block">
-                                <div class="menu-caption">
-                                    <h2 class="menu-title"> <span class="light-font"> Fresh </span>  <strong>Breads</strong> </h2>
-                                    <ul class="sub-list">
-                                        <li> <a href="#">Banana</a> </li>
-                                        <li> <a href="#">Water Melon </a> </li>
-                                        <li> <a href="#">Blackberry </a> </li>
-                                        <li> <a href="#">Plume</a> </li>
-                                        <li> <a href="#">Orange</a> </li>
-                                        <li> <a href="#">Lemon</a> </li>
-                                        <li> <a href="#">Pineapple</a> </li>
-                                        <li> <a href="#">Apple</a> </li>
-                                        <li> <a href="#">Kiwi</a> </li>
-                                    </ul>
-                                    <h2 class="title"> <a href="#" class="clr-txt"> All Fresh Bread </a> </h2>
-                                </div>
-                                <div class="menu-img">
-                                    <img alt="" src="{{ asset('front/img/extra/menu-5.png') }}" />
-                                </div>
-                            </div>
-                            <div class="menu-block">
-                                <div class="menu-caption">
-                                    <h2 class="menu-title"> <span class="light-font"> Fresh </span>  <strong>Tea</strong> </h2>
-                                    <ul class="sub-list">
-                                        <li> <a href="#">Cabbage</a> </li>
-                                        <li> <a href="#">Garlic </a> </li>
-                                        <li> <a href="#">Onion </a> </li>
-                                        <li> <a href="#">Plume</a> </li>
-                                        <li> <a href="#">Carrot</a> </li>
-                                        <li> <a href="#">Papper</a> </li>
-                                        <li> <a href="#">Mushrome</a> </li>
-                                        <li> <a href="#">Apple</a> </li>
-                                        <li> <a href="#">Kiwi</a> </li>
-                                    </ul>
-                                    <h2 class="title"> <a href="#" class="clr-txt"> All Freash Tea </a> </h2>
-                                </div>
-                                <div class="menu-img">
-                                    <img alt="" src="{{ asset('front/img/extra/menu-6.png') }}" />
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
+
                 <div class="responsive-toggle fa fa-bars"> </div>
             </div>
 
@@ -413,7 +312,7 @@
 </section>
 <!-- / Product Preview Popup -->
 
-
+{{--
 <!-- Subscribe Popup-Dark -->
 <section id="subscribe-popups" class="subscribe-me popups-wrap">
     <div class="modal-content">
@@ -440,6 +339,8 @@
     </div>
 </section>
 <!-- / Subscribe Popup-Dark -->
+--}}
+
 
 <!-- JS Global -->
 <script src="{{ asset('front/js/plugin/jquery-2.2.4.min.js') }}"></script>

@@ -16,7 +16,7 @@ class Controller extends BaseController
 	{
 		//1 - alphanumeric, 2 - alpha, 3 - numeric
 		if($type==1){ $string = 'abcdefghijklmnopqrstuvwxyz1234567890'; }
-		if($type==1){ $string = 'abcdefghijklmnopqrstuvwxyz'; }
+		if($type==2){ $string = 'abcdefghijklmnopqrstuvwxyz'; }
 		if($type==3){ $string = '1234567890'; }
 
 		$randString='';
@@ -26,9 +26,9 @@ class Controller extends BaseController
 			$randString .= $string[mt_rand(0,strlen($string)-1)];
 		}
 
-		if(Order::where('order_id', $randString)->exists()){
-			$this->generateRandString();
-		}
+		if($type == 3) { if(Order::where('order_id', $randString)->exists()){ $this->generateRandString(); } }
+		if($type == 1) { if(Order::where('ref', $randString)->exists()){ $this->generateRandString(); } }
+
 
 		return $randString;
 	}

@@ -115,7 +115,10 @@ class productController extends Controller
                 $product_image->url = $disk->url($filename);
 
                 if (array_key_exists('label', $image)) {
-                    $product_image->label = $image['label'];
+					if($image['label'])
+					{
+						$product_image->label = $image['label'];
+					}
                 }
                 if (array_key_exists('sort_order', $image)) {
                     $product_image->order = $image['sort_order'];
@@ -210,7 +213,10 @@ class productController extends Controller
                         $product_image = ProductImage::find($image['id']);
 
                         if (array_key_exists('label', $image)) {
-                            $product_image->label = $image['label'];
+                        	if($image['label'])
+							{
+								$product_image->label = $image['label'];
+							}
                         }
                         if (array_key_exists('sort_order', $image)) {
                             $product_image->order = $image['sort_order'];

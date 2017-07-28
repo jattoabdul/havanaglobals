@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d22cbef0-4319-4f1b-a351-48c67645388f" name="Default" comment="" />
+    <list default="true" id="d22cbef0-4319-4f1b-a351-48c67645388f" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/front/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/front/index.blade.php" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -102,6 +104,16 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name=".env" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.env">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="364">
+              <caret line="38" column="40" lean-forward="true" selection-start-line="38" selection-start-column="15" selection-end-line="38" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="havanaController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/havanaController.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -127,11 +139,11 @@
       <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/front/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="107">
-              <caret line="152" column="33" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="186" selection-end-column="15" />
+            <state relative-caret-position="281">
+              <caret line="90" column="118" lean-forward="true" selection-start-line="90" selection-start-column="118" selection-end-line="90" selection-end-column="118" />
               <folding>
-                <element signature="e#7739#8268#0#HTML" expanded="false" />
-                <element signature="e#8289#8507#0#HTML" expanded="false" />
+                <element signature="e#7795#8324#0#HTML" expanded="false" />
+                <element signature="e#8345#8563#0#HTML" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -147,7 +159,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="contact.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="contact.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/front/contact.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="375">
@@ -279,11 +291,11 @@
         <option value="$PROJECT_DIR$/resources/views/front/fragments/account-sidebar.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/front/account/account.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/front/product-detail.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/front/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/havanaController.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/front/base.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/front/contact.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/front/index.blade.php" />
       </list>
     </option>
   </component>
@@ -814,15 +826,15 @@
       <updated>1500577415244</updated>
       <workItem from="1500577416525" duration="1623000" />
       <workItem from="1500580237352" duration="16568000" />
-      <workItem from="1500846017494" duration="65292000" />
+      <workItem from="1500846017494" duration="65642000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83483000" />
+    <option name="totallyTimeSpent" value="83833000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="873" extended-state="1" />
+    <frame x="0" y="23" width="1440" height="873" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25679544" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -832,7 +844,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3290653" sideWeight="0.49713877" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3290653" sideWeight="0.49713877" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -936,14 +948,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="31" column="14" lean-forward="true" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
           <folding />
         </state>
       </provider>
@@ -1266,17 +1270,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/front/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="152" column="33" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="186" selection-end-column="15" />
-          <folding>
-            <element signature="e#7739#8268#0#HTML" expanded="false" />
-            <element signature="e#8289#8507#0#HTML" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/front/contact.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -1320,6 +1313,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="25" column="43" lean-forward="false" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/front/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="90" column="118" lean-forward="true" selection-start-line="90" selection-start-column="118" selection-end-line="90" selection-end-column="118" />
+          <folding>
+            <element signature="e#7795#8324#0#HTML" expanded="false" />
+            <element signature="e#8345#8563#0#HTML" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="38" column="40" lean-forward="true" selection-start-line="38" selection-start-column="15" selection-end-line="38" selection-end-column="40" />
           <folding />
         </state>
       </provider>

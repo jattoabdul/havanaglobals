@@ -75,7 +75,7 @@
                                 <div class="item">
                                     <div class="product-box">
                                         <div class="product-media">
-                                            <img class="prod-img" style="cursor: pointer;" data-url="{{ route('product_detail', ['id'=>$product->id, 'slug'=>\App\Core::slugger($product->name)]) }}" alt="" src="{{ $product->images()->first()->url }}" />
+                                            <img class="prod-img" style="cursor: pointer;" data-url="{{ route('product_detail', ['id'=>$product->id, 'slug'=>\App\Core::slugger($product->name)]) }}" alt="" src="{{ ($product->images->isNotEmpty())?$product->images[0]->url:'' }}" />
                                             <img class="shape" alt="" src="{{ asset('front/img/icons/shap-small.png') }}" />
                                             <div class="prod-icons">
                                                 <a href="javascript:;" class="fa fa-heart add-to-wishlist" @if(Auth::check()) data-id="{{ $product->id }}" @endif></a>

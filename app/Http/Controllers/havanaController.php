@@ -19,8 +19,8 @@ class havanaController extends Controller
 	{
 		return view('front.index',
 			[
-				'products'=>Product::with('images')->orderBy('id', 'desc')->limit(12)->get(),
-				'deals'=>Product::with('category')->where('old_price', '!=', null)->inRandomOrder()->limit(4)->get(),
+				'products'=>Product::with(['images'])->orderBy('id', 'desc')->limit(12)->get(),
+				'deals'=>Product::with(['category', 'images'])->where('old_price', '!=', null)->inRandomOrder()->limit(4)->get(),
 				'categories'=>Category::all(),
 			]);
 	}

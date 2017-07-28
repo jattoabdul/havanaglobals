@@ -41,6 +41,7 @@
                         <div id="naturix-tab-0" class="tab-pane fade active in">
                             <div class="naturix-slider-1 dots-1">
                                 @foreach($products as $product)
+                                    {{ dd($product->images) }}
                                     <div class="item">
                                         <div class="product-box">
                                             <div class="product-media">
@@ -72,7 +73,6 @@
                         <div id="naturix-tab-{{ $category->id }}" class="tab-pane fade">
                             <div class="naturix-slider-1 dots-1">
                                 @foreach($category->products()->orderBy('id', 'desc')->limit(12)->get() as $product)
-                                    {{ dd($product->images) }}
                                 <div class="item">
                                     <div class="product-box">
                                         <div class="product-media">

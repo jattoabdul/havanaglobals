@@ -17,7 +17,6 @@ class havanaController extends Controller
 
 	public function home()
 	{
-		dd(Product::with(['images'])->orderBy('id', 'desc')->limit(12)->get());
 		return view('front.index',
 			[
 				'products'=>Product::with(['images'])->orderBy('id', 'desc')->limit(12)->get(),

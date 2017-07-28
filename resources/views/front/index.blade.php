@@ -41,6 +41,7 @@
                         <div id="naturix-tab-0" class="tab-pane fade active in">
                             <div class="naturix-slider-1 dots-1">
                                 @foreach($products as $product)
+                                    {{ dd($product) }}
                                     <div class="item">
                                         <div class="product-box">
                                             <div class="product-media">

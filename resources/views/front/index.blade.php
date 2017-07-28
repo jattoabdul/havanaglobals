@@ -72,7 +72,6 @@
                         <div id="naturix-tab-{{ $category->id }}" class="tab-pane fade">
                             <div class="naturix-slider-1 dots-1">
                                 @foreach($category->products()->with('images')->orderBy('id', 'desc')->limit(12)->get() as $product)
-                                    {{ dd($product->images) }}
                                 <div class="item">
                                     <div class="product-box">
                                         <div class="product-media">
@@ -140,7 +139,7 @@
                                 </div>
                                 <div class="deal-content">
                                     <div class="deal-text">
-                                        <h4 class="sub-title"> {{ $product->category[0]->name }} </h4>
+                                        <h4 class="sub-title"> {{ ($product->category->isNotEmpty())?$product->category[0]->name:'' }} </h4>
                                         <h2 class="fsz-30 pb-15"> <a href="{{ route('product_detail', ['id'=>$product->id, 'slug'=>\App\Core::slugger($product->name)]) }}"> <span class="light-font">{{ $product->name }} </span> </a> </h2>
                                         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy...</p>
                                         <div class="price pt-15">

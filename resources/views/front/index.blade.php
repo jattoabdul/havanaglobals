@@ -49,7 +49,7 @@
                                                 <div class="prod-icons">
                                                     <a href="javascript:;" class="fa fa-heart add-to-wishlist" @if(Auth::check()) data-id="{{ $product->id }}" @endif></a>
                                                     <a href="javascript:;" @if($product->qty>0) data-id="{{ $product->id }}" @endif data-title="" class="fa fa-shopping-basket{{ ($product->qty>0)?' add-to-cart':'' }}"></a>
-                                                    <a href="#product-preview" data-id="{{ $product->id }}" data-toggle="modal" class="fa fa-expand"></a>
+                                                    <a href="#product-preview" data-id="{{ $product->id }}" data-toggle="modal" class="product-quicklook fa fa-expand"></a>
                                                 </div>
                                             </div>
                                             <div class="product-caption">
@@ -80,7 +80,7 @@
                                             <div class="prod-icons">
                                                 <a href="javascript:;" class="fa fa-heart add-to-wishlist" @if(Auth::check()) data-id="{{ $product->id }}" @endif></a>
                                                 <a href="javascript:;" @if($product->qty>0) data-id="{{ $product->id }}" @endif data-title="" class="fa fa-shopping-basket{{ ($product->qty>0)?' add-to-cart':'' }}"></a>
-                                                <a href="#product-preview" data-id="{{ $product->id }}" data-toggle="modal" class="fa fa-expand"></a>
+                                                <a href="#product-preview" data-id="{{ $product->id }}" data-toggle="modal" class="product-quicklook fa fa-expand"></a>
                                             </div>
                                         </div>
                                         <div class="product-caption">
@@ -135,7 +135,7 @@
                                 <div class="deal-icons">
                                     <a href="javascript:;" class="fa fa-heart add-to-wishlist" @if(Auth::check()) data-id="{{ $product->id }}" @endif></a>
                                     <a href="javascript:;" @if($product->qty>0) data-id="{{ $product->id }}" @endif data-title="" class="fa fa-shopping-basket{{ ($product->qty>0)?' add-to-cart':'' }}"></a>
-                                    <a href="#product-preview" data-id="{{ $product->id }}" data-toggle="modal" class="fa fa-expand"></a>
+                                    <a href="#product-preview" data-id="{{ $product->id }}" data-toggle="modal" class="product-quicklook fa fa-expand"></a>
                                 </div>
                                 <div class="deal-content">
                                     <div class="deal-text">

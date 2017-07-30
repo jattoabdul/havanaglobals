@@ -41,12 +41,10 @@ class havanaController extends Controller
 			$related = $related->merge($category->products()->limit(4)->get());
 		}
 
-		return view('front.product-detail',
-			[
-				'product'=>$product,
-				'stock'=>$product->qty,
-				'related' => $related
-			]);
+
+		if($request->ajax()) {return response()->json(['state'=>'success', 'product' => $product->toArray()]);}
+
+		return view('front.product-detail', ['product'=>$product, 'stock'=>$product->qty, 'related' => $related]);
 	}
 
 	public function cartAdd(Request $request)

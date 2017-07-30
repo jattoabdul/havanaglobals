@@ -3,11 +3,12 @@ $(document).ready(function() {
     var _token = $('meta[name="_token"]').attr('content');
     'use strict';
 
-
     $(document).on('click','.prod-img',function(e)
     {
         window.location.href = $(this).attr('data-url');
     });
+
+
 
 
     $(document).on('click','.checkout-login',function(e)
@@ -215,4 +216,88 @@ $(document).ready(function() {
         $('#checkout-register-form').slideUp();
         $('#checkout-login-form').slideDown();
     });
+
+    $(document).on('click', '.product-quicklook', function (e)
+    {
+        var id = $(this).attr('data-id');
+
+        $('.preview-overlay').show();
+        var popup_canvas = $('#product-popup-canvas');
+        function syncPosition(el) {
+            var current = this._current;
+            sync2
+                .find(".owl-item")
+                .removeClass("synced")
+                .eq(current)
+                .addClass("synced");
+            center(current);
+        }
+        function center(num) {
+            var sync2visible = sync2.find('.owl-item.active').map(function () {
+                return $(this).index();
+            });
+            if ($.inArray(num, sync2visible) === -1) {
+                if (num > sync2visible[sync2visible.length - 1]) {
+                    sync2.trigger("to.owl.carousel", [num - sync2visible.length + 2, navSpeedThumbs, true]);
+                } else {
+                    sync2.trigger("to.owl.carousel", Math.max(0, num - 1));
+                }
+            } else if (num === sync2visible[sync2visible.length - 1]) {
+                sync2.trigger("to.owl.carousel", [sync2visible[1], navSpeedThumbs, true]);
+            } else if (num === sync2visible[0]) {
+                sync2.trigger("to.owl.carousel", [Math.max(0, num - 1), navSpeedThumbs, true]);
+            }
+        }
+
+        $.get("/product/"+id, function(res)
+        {
+            if (res.state == 'success') {
+                var product = res.product;
+                var images_sync1 = '';
+                var images_sync2 = '';
+                var categories = '';
+                var product_content = $('.product-content');
+                $.each(product.images, function(i, item) {
+                    var active = (i == 0)?' active':'';
+                    images_sync1 += '<div class="owl-item'+active+'" style="width: 100px; margin-right: 0px;">';
+                    images_sync1 += '<div class="item">';
+                    images_sync1 += '<img src="'+item.url+'" alt="'+item.label+'">';
+                    images_sync1 += '<a href="'+item.url+'" data-gal="prettyPhoto[prettyPhoto]" title="'+item.label+'" class="caption-link"><i class="arrow_expand"></i></a>';
+                    images_sync1 += '</div>';
+                    images_sync1 += '</div>';
+                });
+                $.each(product.images, function(i, item) {
+                    var active = (i == 0)?' active synced':'';
+                    images_sync2 += '<div class="owl-item'+active+'" style="width: 33.333px; margin-right: 0px;">';
+                    images_sync2 += '<div class="item"> <a href="#"> <img src="'+item.url+'" alt="'+item.label+'"> </a> </div>';
+                    images_sync2 += '</div>';
+                });
+                $.each(product.category, function(i, item) {
+                    categories += item.name+', ';
+                });
+
+                var data_id = (product.qty > 0) ?product.id:null;
+                var add_to_cart = (product.qty > 0)? ' add-to-cart':'';
+                var old_price = (product.old_price != null)? 'N'+product.old_price:'';
+                var desc = (product.description != null)? product.description:'';
+
+                $('#sync1').find('.owl-stage:first').html(images_sync1);
+                $('#sync2').find('.owl-stage:first').html(images_sync2);
+
+                $('#sync1').init();
+                $('#sync2').init();
+                console.log($('#sync1').init());
+
+                product_content.find('.section-title:first').html('<a href="#"> <span class="light-font"> '+product.name+' </span></a>');
+                product_content.find('.description:first').html('<p>'+desc+'</p>');
+                product_content.find('.add-cart:first').html('<a href="javascript:;" data-title="ADD TO CART" data-id="'+data_id+'" class="theme-btn btn'+add_to_cart+'"> <strong> ADD TO CART </strong> </a>');
+                product_content.find('.categories:first').html(categories.trim().slice(0,-1));
+                product_content.find('.qty').html('Quantity Available: '+product.qty);
+                product_content.find('.price:first').html('<strong class="clr-txt fsz-20">N'+product.price.toLocaleString("en")+' </strong><del class="light-font">'+old_price+' </del>');
+
+                $('.preview-overlay').fadeOut(500);
+            }
+        });
+    });
+
 });

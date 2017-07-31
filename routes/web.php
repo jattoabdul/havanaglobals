@@ -40,6 +40,7 @@ Route::group(['namespace'=>'Admin', 'middleware'=>['auth', 'admin']], function (
 Route::get('/home', function() { return redirect('/'); });
 Route::get('/', 'havanaController@home')->name('home');
 Route::get('/contact', 'havanaController@contactUs')->name('contact');
+Route::get('/about', 'havanaController@aboutUs')->name('about');
 Route::get('/shop', 'searchController@index')->name('shop');
 
 Route::get('/product/{id}/{slug?}', 'havanaController@productShow')->name('product_detail');

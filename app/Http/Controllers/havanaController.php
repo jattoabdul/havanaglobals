@@ -29,6 +29,11 @@ class havanaController extends Controller
 	{
 		return view('front.contact');
 	}
+
+	public function aboutUs()
+	{
+		return view('front.about');
+	}
 	public function productShow(Request $request, $id, $slug="")
 	{
 		$product = Product::with(['category','images'])->where('id',$id)->first();

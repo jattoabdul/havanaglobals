@@ -123,32 +123,35 @@
 
                     </div>
 
-                    <div class="deal-slider dots-2">
+                    {{--
+                        <div class="deal-slider dots-2">
 
                         @foreach($deals as $product)
-                        <div class="item">
-                            <div class="deal-item">
-                                <div class="deal-icons">
-                                    <a href="javascript:;" class="fa fa-heart add-to-wishlist" @if(Auth::check()) data-id="{{ $product->id }}" @endif></a>
-                                    <a href="javascript:;" @if($product->qty>0) data-id="{{ $product->id }}" @endif data-title="" class="fa fa-shopping-basket{{ ($product->qty>0)?' add-to-cart':'' }}"></a>
-                                    <a href="#product-preview" data-id="{{ $product->id }}" data-toggle="modal" class="product-quicklook fa fa-expand"></a>
-                                </div>
-                                <div class="deal-content">
-                                    <div class="deal-text">
-                                        <h4 class="sub-title"> {{ ($product->category->isNotEmpty())?$product->category[0]->name:'' }} </h4>
-                                        <h2 class="fsz-30 pb-15"> <a href="{{ route('product_detail', ['id'=>$product->id, 'slug'=>\App\Core::slugger($product->name)]) }}"> <span class="light-font">{{ $product->name }} </a> </h2>
-                                        <p>{{ ($product->description)?substr($product->description, 0, 50).'...':'' }}</p>
-                                        <div class="price pt-15">
-                                            <strong class="clr-txt">N{{ number_format($product->price) }} </strong> @if($product->old_price) <del class="light-font">N{{ number_format($product->old_price) }} </del> @endif
-                                        </div>
+                            <div class="item">
+                                <div class="deal-item">
+                                    <div class="deal-icons">
+                                        <a href="javascript:;" class="fa fa-heart add-to-wishlist" @if(Auth::check()) data-id="{{ $product->id }}" @endif></a>
+                                        <a href="javascript:;" @if($product->qty>0) data-id="{{ $product->id }}" @endif data-title="" class="fa fa-shopping-basket{{ ($product->qty>0)?' add-to-cart':'' }}"></a>
+                                        <a href="#product-preview" data-id="{{ $product->id }}" data-toggle="modal" class="product-quicklook fa fa-expand"></a>
                                     </div>
-                                    <div class="img"> <img class="prod-img" style="cursor: pointer;" data-url="{{ route('product_detail', ['id'=>$product->id, 'slug'=>\App\Core::slugger($product->name)]) }}" alt="{{ $product->name }}" src="{{ ($product->images->isNotEmpty())?$product->images[0]->url:'' }}"></div>
+                                    <div class="deal-content">
+                                        <div class="deal-text">
+                                            <h4 class="sub-title"> {{ ($product->category->isNotEmpty())?$product->category[0]->name:'' }} </h4>
+                                            <h2 class="fsz-30 pb-15"> <a href="{{ route('product_detail', ['id'=>$product->id, 'slug'=>\App\Core::slugger($product->name)]) }}"> <span class="light-font">{{ $product->name }} </a> </h2>
+                                            <p>{{ ($product->description)?substr($product->description, 0, 50).'...':'' }}</p>
+                                            <div class="price pt-15">
+                                                <strong class="clr-txt">N{{ number_format($product->price) }} </strong> @if($product->old_price) <del class="light-font">N{{ number_format($product->old_price) }} </del> @endif
+                                            </div>
+                                        </div>
+                                        <div class="deal-img" style="max-width: 220px !important; min-width: 217px !important; max-height: 227px !important; min-height: 220px !important;"> <img width="220px" style="cursor: pointer;" data-url="{{ route('product_detail', ['id'=>$product->id, 'slug'=>\App\Core::slugger($product->name)]) }}" alt="{{ $product->name }}" src="{{ ($product->images->isNotEmpty())?$product->images[0]->url:'' }}"></div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         @endforeach
 
                     </div>
+                    --}}
+
                 </div>
             </section>
             <!-- / Deals Ends -->

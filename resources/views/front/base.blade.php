@@ -77,8 +77,8 @@
                     <form action="/logout" method="post" id="logout-form">{{ csrf_field() }}</form>
                     <ul class="primary-navbar">
                         <li class="@yield('home-active')"> <a href="{{ route('home') }}">Home</a> </li>
-                        <li class="@yield('about-active')"><a href="{{ route('shop') }}">Shop</a></li>
-                        <li class="@yield('about-active')"><a href="about-us.html">About</a></li>
+                        <li class="@yield('shop-active')"><a href="{{ route('shop') }}">Shop</a></li>
+                        <li class="@yield('about-active')"><a href="{{ route('about') }}">About</a></li>
                         {{--
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" >Categories</a>
@@ -154,7 +154,6 @@
                         </div>
                         <span class="divider-2"></span>
                         <div class="text-widget">
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</p>
                             <ul>
                                 <li> <i class="fa fa-map-marker"></i> <span> <strong>100 highland ave,</strong> california, united state </span> </li>
                                 <li> <i class="fa fa-envelope-square"></i> <span><a href="#">contact@naturix.com</a> </span> </li>

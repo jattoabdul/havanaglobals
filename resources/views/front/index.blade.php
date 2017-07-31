@@ -122,11 +122,7 @@
                         </div>
 
                     </div>
-                    <div class="deal-count">
-                        <div class="countdown-wrapper">
-                            <div id="defaultCountdown" class="countdown"></div>
-                        </div>
-                    </div>
+
                     <div class="deal-slider dots-2">
 
                         @foreach($deals as $product)
@@ -140,13 +136,13 @@
                                 <div class="deal-content">
                                     <div class="deal-text">
                                         <h4 class="sub-title"> {{ ($product->category->isNotEmpty())?$product->category[0]->name:'' }} </h4>
-                                        <h2 class="fsz-30 pb-15"> <a href="{{ route('product_detail', ['id'=>$product->id, 'slug'=>\App\Core::slugger($product->name)]) }}"> <span class="light-font">{{ $product->name }} </span> </a> </h2>
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy...</p>
+                                        <h2 class="fsz-30 pb-15"> <a href="{{ route('product_detail', ['id'=>$product->id, 'slug'=>\App\Core::slugger($product->name)]) }}"> <span class="light-font">{{ $product->name }} </a> </h2>
+                                        <p>{{ ($product->description)?substr($product->description, 0, 50).'...':'' }}</p>
                                         <div class="price pt-15">
-                                            <strong class="clr-txt">N{{ number_format($product->price) }} </strong>
+                                            <strong class="clr-txt">N{{ number_format($product->price) }} </strong> @if($product->old_price) <del class="light-font">N{{ number_format($product->old_price) }} </del> @endif
                                         </div>
                                     </div>
-                                    <div class="deal-img"> <img alt="" src="{{ asset('front/img/extra/deal-1.png') }}" /> </div>
+                                    <div class="img"> <img class="prod-img" style="cursor: pointer;" data-url="{{ route('product_detail', ['id'=>$product->id, 'slug'=>\App\Core::slugger($product->name)]) }}" alt="{{ $product->name }}" src="{{ ($product->images->isNotEmpty())?$product->images[0]->url:'' }}"></div>
                                 </div>
                             </div>
                         </div>

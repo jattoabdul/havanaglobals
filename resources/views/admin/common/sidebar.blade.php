@@ -68,6 +68,13 @@
                     <span class="selected"></span>
                 </a>
             </li>
+            <li class="nav-item @yield('active_orders')">
+                <a href="{{ route('manage_orders') }}" class="nav-link">
+                    <i class="icon-list"></i>
+                    <span class="title">Orders</span>
+                    <span class="selected"></span>
+                </a>
+            </li>
             <li class="heading">
                 <h3 class="uppercase">Features</h3>
             </li>

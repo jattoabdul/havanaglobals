@@ -28,4 +28,15 @@ abstract class Core
 		if (empty($text)) { return 'n-a'; }
 		return $text;
 	}
+
+	static function orderStatusToString($status, $html=false)
+	{
+		if($status == 0) { return ($html)?htmlentities("<p class='text-warning'>Pending</p>"):"Pending"; }
+		if($status == 1) { return ($html)?htmlentities("<p class='text-success'>Success</p>"):"Success"; }
+		if($status == 2) { return ($html)?htmlentities("<p class='text-danger'>Failed</p>"):"Failed"; }
+		if($status == 3) { return ($html)?htmlentities("<p class='text-info'>Shipped</p>"):"Shipped"; }
+		if($status == 4) { return ($html)?htmlentities("<p class='text-success'>Complete</p>"):"Complete"; }
+
+		return null;
+	}
 }

@@ -34,6 +34,8 @@
                                             @if($order->status == 0) <span class="text-warning">Pending <i class="fa fa-warning"></i></span> @endif
                                             @if($order->status == 1) <span class="text-success">Success <i class="fa fa-check-circle"></i></span> @endif
                                             @if($order->status == 2) <span class="text-danger">Failed <i class="fa fa-times-circle"></i></span>@endif
+                                            @if($order->status == 3) <span class="text-info">Shipped <i class="fa fa-check-circle"></i> <i class="fa fa-bus"></i></span>@endif
+                                            @if($order->status == 4) <span class="text-success">Completed <i class="fa fa-check-circle"></i> <i class="fa fa-check-circle"></i></span>@endif
                                         </td>
 
                                         <td>

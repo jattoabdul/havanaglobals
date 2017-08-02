@@ -23,6 +23,17 @@ class Product extends Model
         return $ids;
     }
 
+    public static function CheckProductAvailability($id, $qty=1)
+	{
+		if(Product::where('id', $id)->where('qty', '>=', $qty)->exists())
+		{ $status = 'Available'; }
+		else
+		{ $status = 'Out of stock'; }
+
+		return $status;
+	}
+
+
     public static function deleteProduct($id)
     {
         $product = Product::find($id);

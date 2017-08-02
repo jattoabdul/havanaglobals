@@ -41,6 +41,11 @@ Route::group(['namespace'=>'Admin', 'middleware'=>['auth', 'admin']], function (
 	Route::post('/admin/user/promote', 'userController@makeAdmin')->name('make_admin');
 	Route::post('/admin/user/demote', 'userController@makeCustomer')->name('make_customer');
 	Route::post('/admin/user/login-faker', 'userController@loginAs')->name('login_as');
+
+	//Orders
+	Route::get('/admin/orders', 'orderController@index')->name('manage_orders');
+	Route::get('/admin/order/view/{id}', 'orderController@view')->name('view_order');
+	Route::get('/admin/order/{id}/status/update/{status}', 'orderController@updateStatus')->name('order_status_update');
 });
 
 Route::get('/home', function() { return redirect('/'); });

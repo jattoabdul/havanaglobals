@@ -68,6 +68,7 @@
                                                 <li><a href="{{ route('order_status_update', [$order->id,4]) }}"> Complete</a></li>
                                             </div>
                                         </div>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach

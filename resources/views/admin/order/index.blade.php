@@ -46,7 +46,7 @@
                                     <td>{{ $order->order_id }}</td>
                                     <td>{{ $order->user->first_name.' '.$order->user->last_name }}</td>
                                     <td>{{ \Carbon\Carbon::parse($order->created_at)->toFormattedDateString() }}</td>
-                                    <td>{{ \App\Core::orderStatusToString($order->status) }}</td>
+                                    <td>{!! html_entity_decode(\App\Core::orderStatusToString($order->status, true)) !!}</td>
                                     <td>N{{ number_format($order->total) }}</td>
                                     <td>
 

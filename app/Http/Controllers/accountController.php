@@ -117,6 +117,13 @@ class accountController extends Controller
 	public function wishlist()
 	{
 		$wishlist = Wishlist::where('user_id', Auth::id())->first();
+		if(is_null($wishlist))
+		{
+			$wishlist = new Wishlist();
+			$wishlist->user_id = Auth::id();
+			$wishlist->list = json_encode([]);
+			$wishlist->save();
+		}
 		$ids = [];
 		foreach(json_decode($wishlist->list) as $item)
 		{

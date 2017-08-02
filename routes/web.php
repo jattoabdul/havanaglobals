@@ -35,6 +35,12 @@ Route::group(['namespace'=>'Admin', 'middleware'=>['auth', 'admin']], function (
 	Route::post('/admin/categories/delete', 'categoryController@delete')->name('delete_categories');
 	Route::get('/admin/categories/edit/{id}', 'categoryController@edit')->name('edit_categories');
 	Route::post('/admin/categories/update/{id}', 'categoryController@update')->name('update_categories');
+
+	//Customers
+	Route::get('/admin/customers', 'userController@index')->name('manage_customers');
+	Route::post('/admin/user/promote', 'userController@makeAdmin')->name('make_admin');
+	Route::post('/admin/user/demote', 'userController@makeCustomer')->name('make_customer');
+	Route::post('/admin/user/login-faker', 'userController@loginAs')->name('login_as');
 });
 
 Route::get('/home', function() { return redirect('/'); });

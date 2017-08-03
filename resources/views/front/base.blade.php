@@ -115,13 +115,13 @@
                             @foreach(\App\Category::all() as $category)
                                 <div class="menu-block">
                                 <div class="menu-caption">
-                                    <h2 class="menu-title"> <a href="#"><span class="light-font">  </span>  <strong> {{ $category->name }}</strong> </a></h2>
+                                    <h2 class="menu-title"> <a href="{{ route('shop', ['cat'=>urlencode($category->name)]) }}"><span class="light-font">  </span>  <strong> {{ $category->name }}</strong> </a></h2>
                                     {{--
                                     <ul class="sub-list">
                                         <li> <a href="#">Banana</a> </li>
                                     </ul>
                                     --}}
-                                    <h2 class="title"> <a href="#" class="clr-txt"> All Fruits </a> </h2>
+                                    <h2 class="title"> <a href="{{ route('shop', ['cat'=>urlencode($category->name)]) }}" class="clr-txt"> All Fruits </a> </h2>
                                 </div>
                                 <div class="menu-img">
                                     <img alt="" src="{{ $category->img }}" />

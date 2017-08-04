@@ -75,6 +75,13 @@
                     <span class="selected"></span>
                 </a>
             </li>
+            <li class="nav-item @yield('active_content')">
+                <a href="{{ route('manage_content') }}" class="nav-link">
+                    <i class="icon-doc"></i>
+                    <span class="title">Content Management</span>
+                    <span class="selected"></span>
+                </a>
+            </li>
             {{--
             <li class="heading">
                 <h3 class="uppercase">Features</h3>

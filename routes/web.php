@@ -46,6 +46,11 @@ Route::group(['namespace'=>'Admin', 'middleware'=>['auth', 'admin']], function (
 	Route::get('/admin/orders', 'orderController@index')->name('manage_orders');
 	Route::get('/admin/order/view/{id}', 'orderController@view')->name('view_order');
 	Route::get('/admin/order/{id}/status/update/{status}', 'orderController@updateStatus')->name('order_status_update');
+
+	//Content Management
+	Route::get('/admin/content', 'contentController@index')->name('manage_content');
+	Route::get('/admin/content/edit/{id}', 'contentController@edit')->name('edit_content');
+	Route::post('/admin/content/update', 'contentController@update')->name('update_content');
 });
 
 Route::get('/home', function() { return redirect('/'); });

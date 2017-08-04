@@ -65,10 +65,10 @@ return [
 
         's3' => [
             'driver' => 's3',
-            'key' => env('AWS_KEY'),
-            'secret' => env('AWS_SECRET'),
-            'region' => env('AWS_REGION'),
-            'bucket' => env('AWS_BUCKET'),
+            'key' => env('AWS_KEY', 'AKIAIRCMIEDGH2NQ35EQ'),
+            'secret' => env('AWS_SECRET', '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'),
+            'region' => env('AWS_REGION', 'us-west-2'),
+            'bucket' => env('AWS_BUCKET', 'havanastore'),
         ],
 
     ],

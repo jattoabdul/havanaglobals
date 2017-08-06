@@ -110,7 +110,7 @@
 
         <div class="about-wrap">
             <img class="logo-img" alt="" src="front/img/extra/sign-1.png" />
-            <h4 class=""> <strong>Gabriel</strong> <span class="light-font"> Johnson </span> </h4>
+            <h4 class=""> <strong>Ayo</strong> <span class="light-font"> Oyinloye </span> </h4>
             <h5 class="clr-txt sub-title-sm">HAVANA OWNER</h5>
             <img class="logo-img" alt="" src="front/img/extra/about-1.png" />
             <h2 class="font-3 fsz-35">Live Havana Live Healthy</h2>

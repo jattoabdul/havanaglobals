@@ -155,9 +155,9 @@
                         <span class="divider-2"></span>
                         <div class="text-widget">
                             <ul>
-                                <li> <i class="fa fa-map-marker"></i> <span> <strong>100 highland ave,</strong> california, united state </span> </li>
-                                <li> <i class="fa fa-envelope-square"></i> <span><a href="#">contact@naturix.com</a> </span> </li>
-                                <li> <i class="fa fa-phone-square"></i> <span><a href="#">www.havana.com</a> </span> </li>
+                                <li> <i class="fa fa-map-marker"></i> <span> <strong>Suite 24, Odu'a Shopping Centre,</strong> Idi-Ape, Iwo-Road, Ibadan </span> </li>
+                                <li> <i class="fa fa-envelope-square"></i> <span><a href="mailto:customercare@havanaglobals.com">customercare@havanaglobals.com</a> </span> </li>
+                                <li> <i class="fa fa-phone-square"></i> <span><a href="www.havanaglobals.com">www.havanaglobals.com</a> </span> </li>
                             </ul>
                         </div>
                     </div>

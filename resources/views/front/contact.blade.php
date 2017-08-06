@@ -53,14 +53,13 @@
                         <h3 class="fsz-25"><span class="light-font">Havana  </span> <strong>Address </strong>  </h3>
                         <h6 class="sub-title-1 pb-15">ORGANIC STORE</h6>
 
-                        <h5 class="clr-txt fsz-12 pt-15">HAVANA STORE</h5>
-                        <p>142 West newton, NY 19088, United States</p>
-
+                        <h5 class="clr-txt fsz-12 pt-15">Havana Global Solutions Nig. Ltd.</h5>
+                        <p>Suite 24, Odu'a Shopping Centre, Idi-Ape, Iwo-Road, Ibadan</p>
                         <ul>
-                            <li> <strong>Call:  </strong> <i>+7 (100) 2234 999</i> </li>
-                            <li> <strong>Email: </strong> <i> <a href='#'>info@montero.com</a> </i> </li>
-                            <li> <strong>Facebook: </strong> <i>  <a href='#'> Montero.facebook </a> </i> </li>
-                            <li> <strong>Twitter: </strong> <i>  <a href='#'> @Montero.Property </a> </i> </li>
+                            <li> <strong>Call:  </strong> <i>+234 (906) 117 3187</i> </li>
+                            <li> <strong>Email: </strong> <i> <a href='#'>customercare@havanaglobals.com</a> </i> </li>
+                            <li> <strong>Facebook: </strong> <i>  <a href='#'> Havana.facebook </a> </i> </li>
+                            <li> <strong>Twitter: </strong> <i>  <a href='#'> @Havana.twitter </a> </i> </li>
                         </ul>
 
                     </div>

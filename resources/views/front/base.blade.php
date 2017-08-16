@@ -157,7 +157,9 @@
                             <ul>
                                 <li> <i class="fa fa-map-marker"></i> <span> <strong>Suite 24, Odu'a Shopping Centre,</strong> Idi-Ape, Iwo-Road, Ibadan </span> </li>
                                 <li> <i class="fa fa-envelope-square"></i> <span><a href="mailto:customercare@havanaglobals.com">customercare@havanaglobals.com</a> </span> </li>
-                                <li> <i class="fa fa-phone-square"></i> <span><a href="www.havanaglobals.com">www.havanaglobals.com</a> </span> </li>
+                                <li> <i class="fa fa-phone-square"></i> <span><a href="tel:+2349061173187">+234 (906) 117 3187</a> </span> </li>
+                                <li> <i class="fa fa-phone-square"></i> <span><a href="tel:+17735432705">+1 (773) 543 2705</a> </span> </li>
+                                <li> <i class="fa fa-globe"></i> <span><a href="www.havanaglobals.com">www.havanaglobals.com</a> </span> </li>
                             </ul>
                         </div>
                     </div>
@@ -165,11 +167,10 @@
                         <h2 class="title-1">  <span class="light-font">havana  </span> <strong>information </strong> </h2>
                         <span class="divider-2"></span>
                         <ul class="list">
-                            <li> <a href="#"> about our shop </a> </li>
+                            <li> <a href="{{ route('about') }}"> about our shop </a> </li>
                             <li> <a href="#"> top sellers </a> </li>
-                            <li> <a href="#"> our blog </a> </li>
+                            <li> <a href="{{ route('shop') }}"> our shop </a> </li>
                             <li> <a href="#"> new products </a> </li>
-                            <li> <a href="#"> secure shopping </a> </li>
                         </ul>
                     </div>
                     <div class="col-md-3 col-sm-4 footer-widget">
@@ -208,7 +209,7 @@
             <div class="container ptb-50">
                 <div class="row">
                     <div class="col-md-6 col-sm-5">
-                        <p>©2016 <a href="#"> <strong> havanaglobals.com</strong> </a>, made with <i class="fa fa-heart red-clr"></i> by <a target="_blank" href="https://squaresoftng.com">SquareSoft Nigeria</a>, all right reserved</p>
+                        <p>©2016 <a href="#"> <strong> www.havanaglobals.com</strong> </a>, made with <i class="fa fa-heart red-clr"></i> by <a target="_blank" href="https://squaresoftng.com">SquareSoft Nigeria</a>, all right reserved</p>
                     </div>
                     <div class="col-md-6 col-sm-7">
                         <ul class="primary-navbar footer-menu">

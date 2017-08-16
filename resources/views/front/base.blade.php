@@ -157,6 +157,9 @@
                             <ul>
                                 <li> <i class="fa fa-map-marker"></i> <span> <strong>Suite 24, Odu'a Shopping Centre,</strong> Idi-Ape, Iwo-Road, Ibadan </span> </li>
                                 <li> <i class="fa fa-envelope-square"></i> <span><a href="mailto:customercare@havanaglobals.com">customercare@havanaglobals.com</a> </span> </li>
+                                <li> <i class="fa fa-envelope-square"></i> <span><a href="mailto:oyinloye.ayo@havanaglobals.com">oyinloye.ayo@havanaglobals.com</a> </span> </li>
+                                <li> <i class="fa fa-envelope-square"></i> <span><a href="mailto:sunkanmi.oyedola@havanaglobals.com">sunkanmi.oyedola@havanaglobals.com</a> </span> </li>
+                                <li> <i class="fa fa-phone-square"></i> <span><a href="tel:+2349061173187">+234 (803) 391 4305</a> </span> </li>
                                 <li> <i class="fa fa-phone-square"></i> <span><a href="tel:+2349061173187">+234 (906) 117 3187</a> </span> </li>
                                 <li> <i class="fa fa-phone-square"></i> <span><a href="tel:+17735432705">+1 (773) 543 2705</a> </span> </li>
                                 <li> <i class="fa fa-globe"></i> <span><a href="www.havanaglobals.com">www.havanaglobals.com</a> </span> </li>
@@ -168,8 +171,8 @@
                         <span class="divider-2"></span>
                         <ul class="list">
                             <li> <a href="{{ route('about') }}"> about our shop </a> </li>
-                            <li> <a href="#"> top sellers </a> </li>
                             <li> <a href="{{ route('shop') }}"> our shop </a> </li>
+                            <li> <a href="#"> top sellers </a> </li>
                             <li> <a href="#"> new products </a> </li>
                         </ul>
                     </div>
@@ -181,8 +184,8 @@
                             <li><a href="{{ route('edit_account') }}"> Account Information </a></li>
                             <li><a href="{{ route('show_address') }}"> Address Books</a></li>
                             <li><a href="{{ route('show_orders') }}"> Order History</a></li>
-                            <li><a href="#"> Reviews and Ratings</a></li>
                             <li><a href="{{ route('show_wishlist') }}"> Wishlist</a></li>
+                            <li><a href="#"> Reviews and Ratings</a></li>
                             <li><a href="#"> Newsletter</a></li>
                         </ul>
                     </div>

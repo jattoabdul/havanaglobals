@@ -96,7 +96,7 @@
 
     <div class="container rel-div">
         <div class="title-wrap pt-15">
-            <h4 class="fsz-20"> <strong>havana</strong> <span class="light-font">  organic farmfood since 1990 </span> </h4>
+            <h4 class="fsz-20"> <strong>havana</strong> <span class="light-font">  organic farmfood since 2017 </span> </h4>
             <h2 class="fsz-50 over-txt-title">
                 <span class="light-font"> WE DO <span class="over-txt light-bg">100% HAVANA GUARANTEE</span>                            </span>
                 <strong>HEALTHY</strong>

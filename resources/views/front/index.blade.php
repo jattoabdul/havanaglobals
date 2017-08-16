@@ -105,6 +105,115 @@
             </section>
             <!-- / Naturix Goods Ends -->
 
+            <!-- Naturix Quality Starts-->
+            <section class="naturix-quality sec-space-bottom">
+                <div class="pattern">
+                    <img alt="" src="{{ asset('front/img/icons/white-pattern.png') }}">
+                </div>
+                <div class="section-icon">
+                    <img alt="" src="{{ asset('front/img/icons/ilogo-icon.png') }}">
+                </div>
+                <div class="container">
+                    <div class="title-wrap pt-15">
+                        <h2 class="section-title pt-15"> <span class="light-font">here are our </span> <strong> COVERAGE AREAS <img src="{{ asset('front/img/icons/logo-icon.png') }}"></strong> </h2>
+                        <h4 class="sub-title"> FEATURES HAVANA DELIVERY COVERAGE AREAS </h4>
+                    </div>
+                    <div class="food-quality block-inline">
+                        <div class="col-md-4 pt-50">
+                            <div class="left">
+                                <div class="quality-img">
+                                    <img alt="" src="{{ asset('front/img/icons/quality-1.png') }}" />
+                                </div>
+                                <div class="quality-caption">
+                                    <h2 class="title-1">Lagos</h2>
+                                    <span class="divider-2"></span>
+                                    <p>We Deliver to any where in Lagos state. Place your order now</p>
+                                </div>
+                            </div>
+                            <div class="left">
+                                <div class="quality-img">
+                                    <img alt="" src="{{ asset('front/img/icons/quality-2.png') }}" />
+                                </div>
+                                <div class="quality-caption">
+                                    <h2 class="title-1">OYO</h2>
+                                    <span class="divider-2"></span>
+                                    <p>We Deliver to any where in Oyo state. Place your order now</p>
+                                </div>
+                            </div>
+                            <div class="left">
+                                <div class="quality-img">
+                                    <img alt="" src="{{ asset('front/img/icons/quality-3.png') }}" />
+                                </div>
+                                <div class="quality-caption">
+                                    <h2 class="title-1">OGUN</h2>
+                                    <span class="divider-2"></span>
+                                    <p>We Deliver to any where in Ogun state. Place your order now.</p>
+                                </div>
+                            </div>
+                            <div class="left">
+                                <div class="quality-img">
+                                    <img alt="" src="{{ asset('front/img/icons/quality-3.png') }}" />
+                                </div>
+                                <div class="quality-caption">
+                                    <h2 class="title-1">EKITI</h2>
+                                    <span class="divider-2"></span>
+                                    <p>We Deliver to any where in Ekiti state. Place your order now.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <img alt="" src="{{ asset('front/img/extra/quality-1.png') }}">
+                        </div>
+                        <div class="col-md-4 pt-50">
+                            <div class="right">
+                                <div class="quality-img">
+                                    <img alt="" src="{{ asset('front/img/icons/quality-4.png') }}" />
+                                </div>
+                                <div class="quality-caption">
+                                    <h2 class="title-1">OSUN</h2>
+                                    <span class="divider-2"></span>
+                                    <p>We Deliver to any where in Osun state. Place your order now.</p>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <div class="quality-img">
+                                    <img alt="" src="{{ asset('front/img/icons/quality-5.png') }}" />
+                                </div>
+                                <div class="quality-caption">
+                                    <h2 class="title-1">KWARA</h2>
+                                    <span class="divider-2"></span>
+                                    <p>We Deliver to any where in Kwara state. Place your order now.</p>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <div class="quality-img">
+                                    <img alt="" src="{{ asset('front/img/icons/quality-6.png') }}" />
+                                </div>
+                                <div class="quality-caption">
+                                    <h2 class="title-1">ONDO</h2>
+                                    <span class="divider-2"></span>
+                                    <p>We Deliver to any where in Ondo state. Place your order now.</p>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <div class="quality-img">
+                                    <img alt="" src="{{ asset('front/img/icons/quality-6.png') }}" />
+                                </div>
+                                <div class="quality-caption">
+                                    <h2 class="title-1">ABUJA</h2>
+                                    <span class="divider-2"></span>
+                                    <p>Please Contact Customer Care for Booking and Delivery Arrangements before placing your order.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Naturix Quality Starts-->
+
+            <div class="container"> <div class="divider-full-1"></div> </div>
+
+
             <!-- Deals Starts-->
             <section class="deals sec-space light-bg">
                 <img alt="" src="{{ asset('front/img/extra/sec-img-3.png') }}" class="right-bg-img" />

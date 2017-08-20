@@ -103,7 +103,7 @@
             </h2>
             <p>Havana is founded by a team of enthusiastic and passionate entrepreneurs. 
                Havana is the leading supply chain technology platform in agriculture domain in Nigeria.
-               BigHaat has a unique customer focused strategy leveraging the current technology ecosystem
+               Havana has a unique customer focused strategy leveraging the current technology ecosystem
                 that differentiates us from the competitors and thereby providing efficient agro-allied services
                  to farm produce retailers and consumers.
              </p>

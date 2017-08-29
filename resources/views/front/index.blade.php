@@ -5,13 +5,14 @@
 
             <!-- Main Slider Start -->
             <section class="main-slide">
-                <img alt=".." src="{{ asset('front/img/slider/slide-6.jpg') }}" />
+                <img alt=".." src="{{ asset('front/img/slider/slide-7.jpg') }}" />
                 <div class="tbl-wrp slide-1">
                     <div class="text-middle">
                         <div class="tbl-cell">
                             <div class="slide-caption container text-center">
                                 <div class="slide-title2 pb-10">
                                     <h2 class="section-title" style="color:#FFF;">  <strong>Healthy and Locally Grown Organic Farm Products</strong></h2>
+                                    <h4 class="sub-title">OUR VISION: STANDING IN THE GAP</h4>
                                 </div>
                             </div>
                         </div>

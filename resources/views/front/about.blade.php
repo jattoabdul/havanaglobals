@@ -37,8 +37,10 @@
     <div class="container rel-div">
         <div class="row">
             <div class="col-sm-6 text-right fsz-16 pt-15 xs-text">
-                <p>Everything Organic!!! This is our motto and we are experts in delivering the best 100% organic foods in the market. 
-                    We are able to deliver to a number of places all over the country and always fresh products.</p>
+                <p>
+                    We occupies the mainstream in Agricultural farm produce, fisheries and live stocks. Revolutionizing the conventional system that exists between farmers and the end users. Our core values are based on 
+                    Quality, Affordability and Reliability.
+                </p>
             </div>
             <div class="col-sm-6 text-left xs-text">
                 <h2 class="section-title"> <span class="light-font">we are </span> <strong>Havana farmfood <img src="front/img/icons/logo-icon.png" alt="" /> </strong>                                </h2>
@@ -79,7 +81,6 @@
                 </div>
             </div>
         </div>
-
         <div class="rel-div feature-img">
             <img src="front/img/extra/feature.png" alt="" />
         </div>

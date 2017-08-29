@@ -5,7 +5,7 @@
 
             <!-- Main Slider Start -->
             <section class="main-slide">
-                <img alt=".." src="{{ asset('front/img/slider/slide-7.jpg') }}" />
+                <img alt=".." src="{{ asset('front/img/slider/slider-7.jpg') }}" />
                 <div class="tbl-wrp slide-1">
                     <div class="text-middle">
                         <div class="tbl-cell">
